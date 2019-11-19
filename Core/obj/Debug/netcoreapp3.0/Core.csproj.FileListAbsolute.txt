@@ -1,0 +1,8 @@
+C:\Projects\dotnet core\Zeus\Core\bin\Debug\netcoreapp3.0\Core.deps.json
+C:\Projects\dotnet core\Zeus\Core\bin\Debug\netcoreapp3.0\Core.dll
+C:\Projects\dotnet core\Zeus\Core\bin\Debug\netcoreapp3.0\Core.pdb
+C:\Projects\dotnet core\Zeus\Core\obj\Debug\netcoreapp3.0\Core.csprojAssemblyReference.cache
+C:\Projects\dotnet core\Zeus\Core\obj\Debug\netcoreapp3.0\Core.AssemblyInfoInputs.cache
+C:\Projects\dotnet core\Zeus\Core\obj\Debug\netcoreapp3.0\Core.AssemblyInfo.cs
+C:\Projects\dotnet core\Zeus\Core\obj\Debug\netcoreapp3.0\Core.dll
+C:\Projects\dotnet core\Zeus\Core\obj\Debug\netcoreapp3.0\Core.pdb
