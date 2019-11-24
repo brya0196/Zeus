@@ -3,9 +3,12 @@
   <component name="ContentModelStore">
     <e p="C:\Projects\dotnet core\Zeus" t="IncludeFlat">
       <e p="Core" t="IncludeRecursive">
+        <e p="Base" t="Include">
+          <e p="IBaseRepository.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="Core.csproj" t="IncludeRecursive" />
+        <e p="Interfaces" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -13,11 +16,23 @@
             </e>
           </e>
         </e>
+        <e p="Repositories" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
+        <e p="Base" t="Include">
+          <e p="BaseEntity.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="Data.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Course.cs" t="Include" />
+          <e p="CoursesUsers.cs" t="Include" />
+          <e p="Gender.cs" t="Include" />
+          <e p="Status.cs" t="Include" />
+          <e p="Subject.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserType.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -25,6 +40,7 @@
             </e>
           </e>
         </e>
+        <e p="ZeusDbContext.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Web" t="IncludeRecursive">
@@ -166,6 +182,11 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="WeatherForecastController.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20191124231215_InitialCommit.cs" t="Include" />
+          <e p="20191124231215_InitialCommit.Designer.cs" t="Include" />
+          <e p="ZeusDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

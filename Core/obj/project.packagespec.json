@@ -17,7 +17,11 @@
     },
     "frameworks": {
       "netcoreapp3.0": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj": {
+            "projectPath": "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

@@ -9,3 +9,7 @@ C:\Projects\dotnet core\Zeus\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfo.cs
 C:\Projects\dotnet core\Zeus\Data\obj\Debug\netcoreapp3.0\Data.csproj.CopyComplete
 C:\Projects\dotnet core\Zeus\Data\obj\Debug\netcoreapp3.0\Data.dll
 C:\Projects\dotnet core\Zeus\Data\obj\Debug\netcoreapp3.0\Data.pdb
+C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.json
+C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.dev.json
+C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Identity.Stores.xml
