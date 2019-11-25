@@ -10,6 +10,5 @@ namespace Core.Base
         Task Delete(T Entity);
         IEnumerable<T> GetAll();
         T Get(int Id);
-        Task Update(T Entity);
     }
 }

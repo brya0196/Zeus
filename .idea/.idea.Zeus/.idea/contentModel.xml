@@ -4,11 +4,18 @@
     <e p="C:\Projects\dotnet core\Zeus" t="IncludeFlat">
       <e p="Core" t="IncludeRecursive">
         <e p="Base" t="Include">
+          <e p="BaseRepository.cs" t="Include" />
           <e p="IBaseRepository.cs" t="Include" />
+          <e p="IUnitOfWork.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Core.csproj" t="IncludeRecursive" />
-        <e p="Interfaces" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="ICourseRepository.cs" t="Include" />
+          <e p="IGenderRepository.cs" t="Include" />
+          <e p="IStatusRepository.cs" t="Include" />
+          <e p="IUserTypeRepository.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -16,7 +23,13 @@
             </e>
           </e>
         </e>
-        <e p="Repositories" t="Include" />
+        <e p="Repositories" t="Include">
+          <e p="CourseRepository.cs" t="Include" />
+          <e p="GenderRepository.cs" t="Include" />
+          <e p="StatusRepository.cs" t="Include" />
+          <e p="UserTypeRepository.cs" t="Include" />
+        </e>
+        <e p="UnitOfWork.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
         <e p="Base" t="Include">

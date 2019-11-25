@@ -1,3 +1,5 @@
+using Core;
+using Core.Base;
 using Data;
 using Data.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +29,8 @@ namespace Web
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
             services.AddDbContext<ZeusDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("Web")));
