@@ -17,6 +17,9 @@ namespace Core
             GenderRepository = new GenderRepository(_context);
             StatusRepository = new StatusRepository(_context);
             UserTypeRepository = new UserTypeRepository(_context);
+            SubjectRepository = new SubjectRepository(_context);
+            UserRepository = new UserRepository(_context);
+            CoursesUsersRepository = new CoursesUsersRepository(_context);
         }
 
         public async void Dispose()
@@ -28,5 +31,8 @@ namespace Core
         public IGenderRepository GenderRepository { get; }
         public IStatusRepository StatusRepository { get; }
         public IUserTypeRepository UserTypeRepository { get; }
+        public ISubjectRepository SubjectRepository { get; }
+        public IUserRepository UserRepository { get; }
+        public ICoursesUsersRepository CoursesUsersRepository { get; }
     }
 }

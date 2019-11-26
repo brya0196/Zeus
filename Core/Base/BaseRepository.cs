@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Data;
+using Data.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Base
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         protected ZeusDbContext _context;
 
@@ -14,24 +15,24 @@ namespace Core.Base
             _context = context;
         }
         
-        public async Task Add(T Entity)
+        public virtual async Task Add(T Entity)
         {
             _context.Set<T>().Add(Entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(T Entity)
+        public virtual async Task Delete(T Entity)
         {
             _context.Set<T>().Remove(Entity);
             await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _context.Set<T>().ToListAsync().Result;
         }
 
-        public T Get(int Id)
+        public virtual T Get(int Id)
         {
             return _context.Set<T>().Find(Id);
         }

@@ -9,5 +9,8 @@ namespace Core.Base
         IGenderRepository GenderRepository { get; }
         IStatusRepository StatusRepository { get; }
         IUserTypeRepository UserTypeRepository { get; }
+        ISubjectRepository SubjectRepository { get; }
+        IUserRepository UserRepository { get; }
+        ICoursesUsersRepository CoursesUsersRepository { get; }
     }
 }

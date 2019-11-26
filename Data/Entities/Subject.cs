@@ -14,6 +14,8 @@ namespace Data.Entities
         public DateTime TimeStart { get; set; }
         public DateTime TimeEnds { get; set; }
         public string Days { get; set; }
+        public int CurrentRoom { get; set; }
+        public int MaximumRoom { get; set; }
         
         
         // relaciones
