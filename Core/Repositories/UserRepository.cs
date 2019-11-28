@@ -24,7 +24,7 @@ namespace Core.Repositories
 
         public async Task Update(User user)
         {
-            var userToUpdate = Get(user.Id);
+            var userToUpdate = await Get(user.Id);
 
             userToUpdate.Name = user.Name;
             userToUpdate.Lastname = user.Lastname;

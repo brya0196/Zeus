@@ -15,7 +15,7 @@ namespace Core.Repositories
 
         public async Task Update(Status status)
         {
-            var statusToUpdate = Get(status.Id);
+            var statusToUpdate = await Get(status.Id);
 
             statusToUpdate.description = status.description;
             statusToUpdate.updated_at = DateTime.Now;

@@ -15,7 +15,7 @@ namespace Core.Repositories
 
         public async Task Update(Gender gender)
         {
-            var genderToUpdate = Get(gender.Id);
+            var genderToUpdate = await Get(gender.Id);
 
             genderToUpdate.description = gender.description;
             genderToUpdate.updated_at = DateTime.Now;

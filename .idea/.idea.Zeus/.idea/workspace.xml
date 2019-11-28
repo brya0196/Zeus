@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="177dfe52-68e9-4f44-a12a-62b91c0798cc" name="Default Changelist" comment="agregado repositorios y el unit of work o unidad de trabajo">
-      <change afterPath="$PROJECT_DIR$/Core/Generators/MatriculaGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Interfaces/ICoursesUsersRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Interfaces/ISubjectRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Interfaces/IUserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.0/Core.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.0/Core.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entities/Subject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entities/Subject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/obj/Debug/netcoreapp3.0/Data.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Data/obj/Debug/netcoreapp3.0/Data.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/IBaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/IBaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/CourseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/CourseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/GenderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/GenderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/StatusRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/StatusRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/UserTypeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/UserTypeRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +26,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Data/ZeusDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files (x86)/IIS Express/config/templates/PersonalWebServer/applicationhost.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/947CFA9E-93C5-4D21-8EE6-CD975672A1F8/1b/4bd900d9/Task`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/IIS Express/config/templates/PersonalWebServer/applicationhost.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Interfaces/ISubjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Startup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -87,31 +86,32 @@
         <option value="$PROJECT_DIR$/Data/Entities/User.cs" />
         <option value="$PROJECT_DIR$/Data/Data.csproj" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IBaseRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Base/IBaseRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Base/UnitOfWork.cs" />
         <option value="$PROJECT_DIR$/Web/Startup.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IGenderRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/GenderRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IStatusRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/StatusRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IUserTypeRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/UserTypeRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/ICourseRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/CourseRepository.cs" />
         <option value="$PROJECT_DIR$/Data/Entities/CoursesUsers.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IUserRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/IBaseGenerator.cs" />
         <option value="$PROJECT_DIR$/Core/Generators/MatriculaGenerator.cs" />
-        <option value="$PROJECT_DIR$/Core/Base/BaseRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/ICoursesUsers.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/ICoursesUsersRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Interfaces/ISubjectRepository.cs" />
         <option value="$PROJECT_DIR$/Data/Entities/Subject.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Base/IUnitOfWork.cs" />
         <option value="$PROJECT_DIR$/Core/UnitOfWork.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/CourseRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/GenderRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/StatusRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/UserTypeRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Base/IBaseRepository.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Core/Base/BaseRepository.cs" />
       </list>
     </option>
   </component>
@@ -183,6 +183,7 @@
       <workItem from="1574214634042" duration="769000" />
       <workItem from="1574627210785" duration="12415000" />
       <workItem from="1574802707497" duration="5969000" />
+      <workItem from="1574816694845" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="agregada conexion al base de datos y entidades">
       <created>1574638179189</created>
@@ -327,12 +328,20 @@
     </state>
     <state x="3976" y="592" key="RiderGenerateDialog/0.0.1600.860/3200.383.1920.1040@3200.383.1920.1040" timestamp="1574641001923" />
     <state x="647" y="173" key="RiderGenerateDialog/0.0.1600.860@0.0.1600.860" timestamp="1574810483338" />
+    <state x="586" y="140" key="RollbackChangesDialog" timestamp="1574812167767">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="586" y="140" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1574812167766" />
     <state x="3562" y="470" key="SettingsEditor" timestamp="1574629195893">
       <screen x="3200" y="383" width="1920" height="1040" />
     </state>
     <state x="302" y="72" key="SettingsEditor/0.0.1600.860/3200.383.1920.1040@0.0.1600.860" timestamp="1574212532513" />
     <state x="3562" y="470" key="SettingsEditor/0.0.1600.860/3200.383.1920.1040@3200.383.1920.1040" timestamp="1574629195893" />
     <state x="302" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1574206874918" />
+    <state x="649" y="345" key="VCS.ChangelistChooser" timestamp="1574812130248">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="649" y="345" key="VCS.ChangelistChooser/0.0.1600.860@0.0.1600.860" timestamp="1574812130248" />
     <state x="3752" y="635" key="Vcs.Push.Dialog.v2" timestamp="1574641115869">
       <screen x="3200" y="383" width="1920" height="1040" />
     </state>
@@ -349,10 +358,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="666" y="358" width="348" height="298" key="org.angular.cli.generate/0.0.1600.860@0.0.1600.860" timestamp="1574807735118" />
-    <state x="465" y="183" width="672" height="678" key="search.everywhere.popup" timestamp="1574810508179">
+    <state x="466" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1574812198942">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="465" y="183" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1574810508179" />
+    <state x="466" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1574812198942" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

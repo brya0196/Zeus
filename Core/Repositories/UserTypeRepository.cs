@@ -15,7 +15,7 @@ namespace Core.Repositories
 
         public async Task Update(UserType userType)
         {
-            var userTypeToUpdate = Get(userType.Id);
+            var userTypeToUpdate = await Get(userType.Id);
 
             userTypeToUpdate.description = userType.description;
             userTypeToUpdate.updated_at = DateTime.Now;

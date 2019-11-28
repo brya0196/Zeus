@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Base;
@@ -21,20 +22,21 @@ namespace Core.Base
             await _context.SaveChangesAsync();
         }
 
-        public virtual async Task Delete(T Entity)
+        public virtual async Task Delete(int Id)
         {
-            _context.Set<T>().Remove(Entity);
+            var entity = await Get(Id);
+            _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            return _context.Set<T>().ToListAsync().Result;
+            return  _context.Set<T>().ToListAsync().Result;
         }
 
-        public virtual T Get(int Id)
+        public virtual async Task<T> Get(int Id)
         {
-            return _context.Set<T>().Find(Id);
+            return await _context.Set<T>().FindAsync(Id);
         }
     }
 }

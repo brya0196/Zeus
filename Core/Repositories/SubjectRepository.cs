@@ -15,7 +15,7 @@ namespace Core.Repositories
 
         public async Task Update(Subject subject)
         {
-            var subjectToUpdate = Get(subject.Id);
+            var subjectToUpdate = await Get(subject.Id);
 
             subjectToUpdate.Course = subject.Course;
             subjectToUpdate.CurrentRoom = subject.CurrentRoom;
