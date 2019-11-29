@@ -7,23 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace Web.Controllers
 {
     [ApiController]
-    public class SubjectController : Controller
+    public class GenderController : Controller
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SubjectController(IUnitOfWork unitOfWork)
+        public GenderController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
-        [Route("api/subject")]
+        [Route("api/gender")]
         public IActionResult GetAll()
         {
             try
             {
-                var subjects = _unitOfWork.SubjectRepository.GetAll();
-                return Ok(subjects);
+                var genders = _unitOfWork.GenderRepository.GetAll();
+                return Ok(genders);
             }
             catch (Exception e)
             {
@@ -34,15 +34,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpGet]
-        [Route("api/subject/{Id:int}")]
-        public async Task<IActionResult> GetById(int Id)
+        [Route("api/gender/{Id:int}")]
+        public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var subject = await _unitOfWork.SubjectRepository.Get(Id);
-                return Ok(subject);
+                var gender = await _unitOfWork.GenderRepository.Get(Id);
+                return Ok(gender);
             }
             catch (Exception e)
             {
@@ -53,15 +53,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpPost]
-        [Route("api/subject")]
-        public async Task<IActionResult> Add(Subject subject)
+        [Route("api/gender")]
+        public async Task<IActionResult> Add(Gender gender)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Add(subject);
-                return Ok(subject);
+                await _unitOfWork.GenderRepository.Add(gender);
+                return Ok(gender);
             }
             catch (Exception e)
             {
@@ -74,13 +74,13 @@ namespace Web.Controllers
         }
         
         [HttpPut]
-        [Route("api/subject")]
-        public async Task<IActionResult> Update(Subject subject)
+        [Route("api/gender")]
+        public async Task<IActionResult> Update(Gender gender)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Update(subject);
-                return Ok(subject);
+                await _unitOfWork.GenderRepository.Update(gender);
+                return Ok(gender);
             }
             catch (Exception e)
             {
@@ -93,12 +93,12 @@ namespace Web.Controllers
         }
         
         [HttpDelete]
-        [Route("api/subject")]
+        [Route("api/gender")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Delete(Id);
+                await _unitOfWork.GenderRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)

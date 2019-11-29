@@ -7,23 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace Web.Controllers
 {
     [ApiController]
-    public class SubjectController : Controller
+    public class UserTypeController : Controller
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SubjectController(IUnitOfWork unitOfWork)
+        public UserTypeController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
-        [Route("api/subject")]
+        [Route("api/usertype")]
         public IActionResult GetAll()
         {
             try
             {
-                var subjects = _unitOfWork.SubjectRepository.GetAll();
-                return Ok(subjects);
+                var userTypes = _unitOfWork.UserTypeRepository.GetAll();
+                return Ok(userTypes);
             }
             catch (Exception e)
             {
@@ -34,15 +34,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpGet]
-        [Route("api/subject/{Id:int}")]
-        public async Task<IActionResult> GetById(int Id)
+        [Route("api/usertype/{Id:int}")]
+        public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var subject = await _unitOfWork.SubjectRepository.Get(Id);
-                return Ok(subject);
+                var userType = await _unitOfWork.UserTypeRepository.Get(Id);
+                return Ok(userType);
             }
             catch (Exception e)
             {
@@ -53,15 +53,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpPost]
-        [Route("api/subject")]
-        public async Task<IActionResult> Add(Subject subject)
+        [Route("api/usertype")]
+        public async Task<IActionResult> Add(UserType userType)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Add(subject);
-                return Ok(subject);
+                await _unitOfWork.UserTypeRepository.Add(userType);
+                return Ok(userType);
             }
             catch (Exception e)
             {
@@ -74,13 +74,13 @@ namespace Web.Controllers
         }
         
         [HttpPut]
-        [Route("api/subject")]
-        public async Task<IActionResult> Update(Subject subject)
+        [Route("api/usertype")]
+        public async Task<IActionResult> Update(UserType userType)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Update(subject);
-                return Ok(subject);
+                await _unitOfWork.UserTypeRepository.Update(userType);
+                return Ok(userType);
             }
             catch (Exception e)
             {
@@ -93,12 +93,12 @@ namespace Web.Controllers
         }
         
         [HttpDelete]
-        [Route("api/subject")]
+        [Route("api/usertype")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.SubjectRepository.Delete(Id);
+                await _unitOfWork.UserTypeRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)

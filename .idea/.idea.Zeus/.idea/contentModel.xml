@@ -219,8 +219,11 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="CourseController.cs" t="Include" />
+          <e p="GenderController.cs" t="Include" />
+          <e p="StatusController.cs" t="Include" />
           <e p="SubjectController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
+          <e p="UserTypeController.cs" t="Include" />
           <e p="WeatherForecastController.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
