@@ -218,6 +218,8 @@
           <e p="tsconfig.json" t="Include" />
         </e>
         <e p="Controllers" t="Include">
+          <e p="CourseController.cs" t="Include" />
+          <e p="SubjectController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="WeatherForecastController.cs" t="Include" />
         </e>

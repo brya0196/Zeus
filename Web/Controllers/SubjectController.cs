@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 namespace Web.Controllers
 {
     [ApiController]
-    public class UserController : Controller
+    public class SubjectController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
-        public UserController(IUnitOfWork unitOfWork)
+        public SubjectController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
         
         [HttpGet]
-        [Route("api/user")]
+        [Route("api/subject")]
         public IActionResult GetAll()
         {
             try
             {
-                var users = _unitOfWork.UserRepository.GetAll();
+                var users = _unitOfWork.SubjectRepository.GetAll();
                 return Ok(users);
             }
             catch (Exception e)
@@ -36,12 +36,12 @@ namespace Web.Controllers
         }
         
         [HttpGet]
-        [Route("api/user/{Id:int}")]
+        [Route("api/subject/{Id:int}")]
         public async Task<IActionResult> GetById(int Id)
         {
             try
             {
-                var user = await _unitOfWork.UserRepository.Get(Id);
+                var user = await _unitOfWork.SubjectRepository.Get(Id);
                 return Ok(user);
             }
             catch (Exception e)
@@ -55,13 +55,13 @@ namespace Web.Controllers
         }
         
         [HttpPost]
-        [Route("api/user")]
-        public async Task<IActionResult> Add(User user)
+        [Route("api/subject")]
+        public async Task<IActionResult> Add(Subject subject)
         {
             try
             {
-                await _unitOfWork.UserRepository.Add(user);
-                return Ok(user);
+                await _unitOfWork.SubjectRepository.Add(subject);
+                return Ok(subject);
             }
             catch (Exception e)
             {
@@ -74,13 +74,13 @@ namespace Web.Controllers
         }
         
         [HttpPut]
-        [Route("api/user")]
-        public async Task<IActionResult> Update(User user)
+        [Route("api/subject")]
+        public async Task<IActionResult> Update(Subject subject)
         {
             try
             {
-                await _unitOfWork.UserRepository.Update(user);
-                return Ok(user);
+                await _unitOfWork.SubjectRepository.Update(subject);
+                return Ok(subject);
             }
             catch (Exception e)
             {
@@ -93,12 +93,12 @@ namespace Web.Controllers
         }
         
         [HttpDelete]
-        [Route("api/user")]
+        [Route("api/subject")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.UserRepository.Delete(Id);
+                await _unitOfWork.SubjectRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)
@@ -110,6 +110,5 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
     }
 }

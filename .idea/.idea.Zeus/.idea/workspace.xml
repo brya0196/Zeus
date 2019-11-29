@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="177dfe52-68e9-4f44-a12a-62b91c0798cc" name="Default Changelist" comment="agregado repositorios y el unit of work o unidad de trabajo">
+      <change afterPath="$PROJECT_DIR$/Web/Controllers/CourseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/Controllers/SubjectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +40,10 @@
     <setting file="file://$PROJECT_DIR$/Core/Interfaces/IUserRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/Entities/Gender.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F02BA8B9-A5B6-4E99-A0F8-4DB60F684C12/91/2c3af5ea/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/SubjectController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web2/ClientApp/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F02BA8B9-A5B6-4E99-A0F8-4DB60F684C12/aa/23b3124a/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/CourseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/Entities/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/Base/BaseEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Base/IBaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,9 +113,11 @@
         <option value="$PROJECT_DIR$/Web/Startup.cs" />
         <option value="$PROJECT_DIR$/Web2/appsettings.json" />
         <option value="$PROJECT_DIR$/Web/appsettings.json" />
-        <option value="$PROJECT_DIR$/Web/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Base/BaseRepository.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/CourseController.cs" />
+        <option value="$PROJECT_DIR$/Web/Controllers/SubjectController.cs" />
       </list>
     </option>
   </component>
@@ -222,7 +227,7 @@
       <workItem from="1574802707497" duration="5969000" />
       <workItem from="1574816694845" duration="612000" />
       <workItem from="1574900388917" duration="5027000" />
-      <workItem from="1574980832193" duration="2965000" />
+      <workItem from="1574980832193" duration="4228000" />
     </task>
     <task id="LOCAL-00001" summary="agregada conexion al base de datos y entidades">
       <created>1574638179189</created>
@@ -266,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574980874105</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made some corrections and added to UserController the decorators">
+      <created>1574988820232</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574988820232</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +306,8 @@
     <MESSAGE value="change from angular to react with redux" />
     <MESSAGE value="change from angular to react" />
     <MESSAGE value="cambios en los proyectos" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios en los proyectos" />
+    <MESSAGE value="made some corrections and added to UserController the decorators" />
+    <option name="LAST_COMMIT_MESSAGE" value="made some corrections and added to UserController the decorators" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1574902946045">

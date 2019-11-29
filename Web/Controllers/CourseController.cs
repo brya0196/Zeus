@@ -7,23 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace Web.Controllers
 {
     [ApiController]
-    public class UserController : Controller
+    public class CourseController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserController(IUnitOfWork unitOfWork)
+        public CourseController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
-        [Route("api/user")]
+        [Route("api/course")]
         public IActionResult GetAll()
         {
             try
             {
-                var users = _unitOfWork.UserRepository.GetAll();
-                return Ok(users);
+                var courses = _unitOfWork.CourseRepository.GetAll();
+                return Ok(courses);
             }
             catch (Exception e)
             {
@@ -34,15 +34,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpGet]
-        [Route("api/user/{Id:int}")]
-        public async Task<IActionResult> GetById(int Id)
+        [Route("api/course/{Id:int}")]
+        public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var user = await _unitOfWork.UserRepository.Get(Id);
-                return Ok(user);
+                var course = await _unitOfWork.CourseRepository.Get(Id);
+                return Ok(course);
             }
             catch (Exception e)
             {
@@ -53,15 +53,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpPost]
-        [Route("api/user")]
-        public async Task<IActionResult> Add(User user)
+        [Route("api/course")]
+        public async Task<IActionResult> Add(Course course)
         {
             try
             {
-                await _unitOfWork.UserRepository.Add(user);
-                return Ok(user);
+                await _unitOfWork.CourseRepository.Add(course);
+                return Ok(course);
             }
             catch (Exception e)
             {
@@ -74,13 +74,13 @@ namespace Web.Controllers
         }
         
         [HttpPut]
-        [Route("api/user")]
-        public async Task<IActionResult> Update(User user)
+        [Route("api/course")]
+        public async Task<IActionResult> Update(Course course)
         {
             try
             {
-                await _unitOfWork.UserRepository.Update(user);
-                return Ok(user);
+                await _unitOfWork.CourseRepository.Update(course);
+                return Ok(course);
             }
             catch (Exception e)
             {
@@ -93,12 +93,12 @@ namespace Web.Controllers
         }
         
         [HttpDelete]
-        [Route("api/user")]
+        [Route("api/course")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.UserRepository.Delete(Id);
+                await _unitOfWork.CourseRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)
@@ -110,6 +110,5 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
     }
 }
