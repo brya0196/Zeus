@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
+    [ApiController]
     public class UserController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -14,7 +15,9 @@ namespace Web.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-
+        
+        [HttpGet]
+        [Route("api/User")]
         public IActionResult GetAll()
         {
             try
@@ -31,7 +34,9 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-
+        
+        [HttpGet]
+        [Route("api/User/{Id:int}")]
         public async Task<IActionResult> GetById(int Id)
         {
             try
@@ -48,7 +53,9 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-
+        
+        [HttpPost]
+        [Route("api/User")]
         public async Task<IActionResult> Add(User user)
         {
             try
@@ -65,7 +72,9 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-
+        
+        [HttpPut]
+        [Route("api/User")]
         public async Task<IActionResult> Update(User user)
         {
             try
@@ -82,7 +91,9 @@ namespace Web.Controllers
                 _unitOfWork.Dispose(); 
             }
         }
-
+        
+        [HttpDelete]
+        [Route("api/User")]
         public async Task<IActionResult> Delete(int Id)
         {
             try

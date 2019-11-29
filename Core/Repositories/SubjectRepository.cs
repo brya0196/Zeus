@@ -26,6 +26,8 @@ namespace Core.Repositories
             subjectToUpdate.Days = subject.Days;
             subjectToUpdate.DateStart = subject.DateStart;
             subjectToUpdate.DateEnds = subject.DateEnds;
+            subjectToUpdate.Code = subject.Code;
+            subjectToUpdate.CodeRequirement = subject.CodeRequirement;
             subjectToUpdate.updated_at = DateTime.Now;
 
             _context.Subjects.Update(subjectToUpdate);

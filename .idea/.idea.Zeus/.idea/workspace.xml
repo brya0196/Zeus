@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="177dfe52-68e9-4f44-a12a-62b91c0798cc" name="Default Changelist" comment="agregado repositorios y el unit of work o unidad de trabajo">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zeus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Base/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +17,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Data/ZeusDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Web/Controllers/WeatherForecastController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Pages/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web2/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -99,16 +103,16 @@
         <option value="$PROJECT_DIR$/Core/Repositories/CoursesUsersRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/GenderRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/StatusRepository.cs" />
-        <option value="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/UserTypeRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/UserRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Base/IBaseRepository.cs" />
-        <option value="$PROJECT_DIR$/Web/Controllers/UserController.cs" />
-        <option value="$PROJECT_DIR$/Core/Base/BaseRepository.cs" />
         <option value="$PROJECT_DIR$/Zeus.sln" />
         <option value="$PROJECT_DIR$/Web/Startup.cs" />
         <option value="$PROJECT_DIR$/Web2/appsettings.json" />
         <option value="$PROJECT_DIR$/Web/appsettings.json" />
+        <option value="$PROJECT_DIR$/Web/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Core/Repositories/SubjectRepository.cs" />
+        <option value="$PROJECT_DIR$/Core/Base/BaseRepository.cs" />
       </list>
     </option>
   </component>
@@ -218,6 +222,7 @@
       <workItem from="1574802707497" duration="5969000" />
       <workItem from="1574816694845" duration="612000" />
       <workItem from="1574900388917" duration="5027000" />
+      <workItem from="1574980832193" duration="2965000" />
     </task>
     <task id="LOCAL-00001" summary="agregada conexion al base de datos y entidades">
       <created>1574638179189</created>
@@ -254,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574906042660</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cambios en los proyectos">
+      <created>1574980874105</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574980874105</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +293,8 @@
     <MESSAGE value="fixed some bugs" />
     <MESSAGE value="change from angular to react with redux" />
     <MESSAGE value="change from angular to react" />
-    <option name="LAST_COMMIT_MESSAGE" value="change from angular to react" />
+    <MESSAGE value="cambios en los proyectos" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios en los proyectos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1574902946045">
@@ -406,11 +419,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="649" y="345" key="VCS.ChangelistChooser/0.0.1600.860@0.0.1600.860" timestamp="1574812130248" />
-    <state x="460" y="208" key="Vcs.Push.Dialog.v2" timestamp="1574906077360">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="3752" y="635" key="Vcs.Push.Dialog.v2" timestamp="1574980885753">
+      <screen x="3200" y="383" width="1920" height="1040" />
     </state>
     <state x="460" y="208" key="Vcs.Push.Dialog.v2/0.0.1600.860/3200.383.1920.1040@0.0.1600.860" timestamp="1574906077360" />
-    <state x="3752" y="635" key="Vcs.Push.Dialog.v2/0.0.1600.860/3200.383.1920.1040@3200.383.1920.1040" timestamp="1574641115869" />
+    <state x="3752" y="635" key="Vcs.Push.Dialog.v2/0.0.1600.860/3200.383.1920.1040@3200.383.1920.1040" timestamp="1574980885753" />
     <state x="3840" y="657" key="WebReferenceSession.Dialog" timestamp="1574637388866">
       <screen x="3200" y="383" width="1920" height="1040" />
     </state>
