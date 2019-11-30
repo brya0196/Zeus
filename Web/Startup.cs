@@ -1,5 +1,6 @@
 using Core;
 using Core.Base;
+using Core.Services;
 using Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace Web
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
             
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<UserService, UserService>();
             
             services.AddDbContext<ZeusDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),

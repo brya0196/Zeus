@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Core.Base;
+using Core.Services;
 using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +11,12 @@ namespace Web.Controllers
     public class UserController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserService _userService;
 
-        public UserController(IUnitOfWork unitOfWork)
+        public UserController(IUnitOfWork unitOfWork, UserService userService)
         {
             _unitOfWork = unitOfWork;
+            _userService = userService;
         }
         
         [HttpGet]
@@ -60,7 +63,8 @@ namespace Web.Controllers
         {
             try
             {
-                await _unitOfWork.UserRepository.Add(user);
+                var userFixed =  _userService.AddMatriculaToStudent(user);
+                await _unitOfWork.UserRepository.Add(userFixed);
                 return Ok(user);
             }
             catch (Exception e)

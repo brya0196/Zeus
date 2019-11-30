@@ -15,13 +15,6 @@ namespace Core.Repositories
         {
         }
 
-        public override Task Add(User Entity)
-        {
-            var lastUser = GetAll().Last();
-            Entity.Matricula = MatriculaGenerator.Generator(lastUser.Matricula);
-            return base.Add(Entity);
-        }
-
         public async Task Update(User user)
         {
             var userToUpdate = await Get(user.Id);
@@ -35,10 +28,18 @@ namespace Core.Repositories
             userToUpdate.Birthdate = user.Birthdate;
             userToUpdate.updated_at = DateTime.Now;
 
-            _context.Users.Add(userToUpdate);
+            _context.Users.Update(userToUpdate);
             await _context.SaveChangesAsync();
         }
 
-       
+        public async Task ChangePassword(int Id, string password)
+        {
+            var userToUpdate = await Get(Id);
+
+            userToUpdate.Password = password;
+
+            _context.Users.Update(userToUpdate);
+            await _context.SaveChangesAsync();
+        }
     }
 }
