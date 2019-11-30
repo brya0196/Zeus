@@ -1,18 +1,20 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj",
+    "projectUniqueName": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj",
     "projectName": "Data",
-    "projectPath": "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj",
-    "outputPath": "C:\\Projects\\dotnet core\\Zeus\\Data\\obj\\",
+    "projectPath": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj",
+    "outputPath": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
+      "C:\\ProgramData\\Xamarin\\NuGet",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp3.0"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {

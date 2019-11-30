@@ -1,28 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj": {}
+    "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj": {
+    "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj",
+        "projectUniqueName": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Projects\\dotnet core\\Zeus\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\ryan0\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\dotnet core\\Zeus\\Data\\obj\\",
+        "projectPath": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\Deibis Segura\\.nuget\\packages\\",
+        "outputPath": "E:\\UAPA\\2019-4\\software II\\proyecto\\Zeus\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ryan0\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Deibis Segura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

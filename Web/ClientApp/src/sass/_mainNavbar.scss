@@ -1,0 +1,30 @@
+﻿.page > header {
+    position: fixed;
+    z-index: 1014;
+    width: 100%;
+}
+nav.navbar {
+    background: map_get($theme-colors, primary);
+    color: $white;
+    position: relative;
+    border-radius: 0;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: auto;
+    padding: 5px 0;
+    height: 50px;
+    
+    .menu-btn {
+        margin-right: 10px;
+        font-size: 1.2em;
+        transition: all 0.7s;
+        display: inline-block;
+        cursor: pointer;
+        span { 
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            display: block;
+            margin: 4px auto 0;
+        }
+    }
+}

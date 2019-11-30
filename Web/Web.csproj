@@ -22,13 +22,26 @@
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
+        <Content Include="ClientApp\src\views\Cursos\crear.js" />
+        <Content Include="ClientApp\src\views\Cursos\index.js" />
+        <Content Include="ClientApp\src\views\DashBoard\index.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Include="ClientApp\src\views\Asignaturas\crear.js" />
+        <None Include="ClientApp\src\views\Cursos\crear.js" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Core\Core.csproj" />
       <ProjectReference Include="..\Data\Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="ClientApp\public\favicon\manifest.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ClientApp\src\img" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

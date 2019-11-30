@@ -1,0 +1,100 @@
+﻿
+body {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #666;
+    background-color: $gray-100;
+}
+ 
+@import "_mainNavbar.scss";
+@import "_sidebar.scss";
+
+.content-inner {
+    min-height: 500px;
+    width: calc(100% - #{$side-navbarWidth});
+    margin-left: $side-navbarWidth;
+    position: relative;
+    &.active {
+        width: calc(100% - 90px);
+        margin-left: 90px;
+    }
+}
+header.header{  
+    position: fixed;
+    width: inherit;
+    z-index: 99;
+//    top: 50px;
+}
+header.page-header {
+    display: flex;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    height: ($grid-gutter-width * 2) + 1;
+    align-items: center;
+    position: fixed;
+    width: inherit;
+    z-index: 99;
+    top: 50px;
+    h2 {
+        margin: 0;
+        color: map_get($theme-colors, secondary);
+        font-size: 1.3rem;
+        + ul.controls {
+            padding: 0;
+            margin: 0 0 0 auto;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                margin-left: 3px;
+
+                *:focus {
+                    box-shadow: none;
+                }
+                button{
+                    background: $gray-200;
+                }
+                select{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    +section{
+        padding: 16px 0;
+    }
+}
+
+.content-inner {
+    header.page-header {
+        width: calc(100% - #{$side-navbarWidth});
+        background: $gray-100;
+
+        + section {
+            padding-top: 112px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+    }
+
+    &.active {
+        header.page-header {
+            width: calc(100% - 90px);
+        }
+    }
+}
+
+
+@media (max-width: 1200px){
+    header.page-header{
+        height: 37px;
+        h2{
+            font-size: 1.1rem;
+        }
+        + section{
+            padding-top: 54px !important;
+        }
+    }
+}

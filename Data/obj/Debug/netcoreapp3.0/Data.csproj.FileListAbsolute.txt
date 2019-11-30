@@ -11,3 +11,13 @@ C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.jso
 C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.dev.json
 C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Projects\dotnet core\Zeus\Data\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Identity.Stores.xml
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\bin\Debug\netcoreapp3.0\Data.deps.json
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.json
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\bin\Debug\netcoreapp3.0\Data.runtimeconfig.dev.json
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\bin\Debug\netcoreapp3.0\Data.dll
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\bin\Debug\netcoreapp3.0\Data.pdb
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\obj\Debug\netcoreapp3.0\Data.csprojAssemblyReference.cache
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfoInputs.cache
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\obj\Debug\netcoreapp3.0\Data.AssemblyInfo.cs
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\obj\Debug\netcoreapp3.0\Data.dll
+E:\UAPA\2019-4\software II\proyecto\Zeus\Data\obj\Debug\netcoreapp3.0\Data.pdb
