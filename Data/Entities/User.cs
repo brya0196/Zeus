@@ -15,6 +15,7 @@ namespace Data.Entities
         public string Cedula { get; set; }
         public string Phone { get; set; }    
         public string Email { get; set; }
+        public string Token { get; set; }
         
         // relaciones
         public virtual Gender Gender { get; set; }

@@ -38,6 +38,9 @@
           <e p="UserRepository.cs" t="Include" />
           <e p="UserTypeRepository.cs" t="Include" />
         </e>
+        <e p="Services" t="Include">
+          <e p="UserService.cs" t="Include" />
+        </e>
         <e p="UnitOfWork.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
@@ -252,76 +255,6 @@
         <e p="WeatherForecast.cs" t="Include" />
         <e p="Web.csproj" t="IncludeRecursive" />
       </e>
-      <e p="Web2\ClientApp\node_modules\@angular\animations" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\cli" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\common" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\compiler" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\compiler-cli" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\Core" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\forms" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\platform-browser" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\platform-server" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular\router" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\architect" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\build-angular" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\build-optimizer" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\build-webpack" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\Core" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@angular-devkit\schematics" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@ngtools\webpack" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@nguniversal\module-map-ngfactory-loader" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\@types" t="IncludeRecursive">
-        <e p="events" t="IncludeRecursive" />
-        <e p="jasmine" t="IncludeRecursive" />
-        <e p="jasminewd2" t="IncludeRecursive" />
-        <e p="minimatch" t="IncludeRecursive" />
-        <e p="node" t="IncludeRecursive" />
-        <e p="source-list-map" t="IncludeRecursive" />
-      </e>
-      <e p="Web2\ClientApp\node_modules\ajv" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\aspnet-prerendering" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\blocking-proxy" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\bootstrap" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\canonical-path" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\chokidar" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\codelyzer" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\commander" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\core-js" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\dependency-graph" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\domino" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\es6-promise" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\fast-deep-equal" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\jasmine-core" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\jasmine-spec-reporter" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\jquery" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\karma" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\karma-chrome-launcher" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\karma-coverage-istanbul-reporter" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\karma-jasmine" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\license-webpack-plugin" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\magic-string" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\node-sass" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\oidc-client" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\popper.js" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\portfinder" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\postcss" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\protractor" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\reflect-metadata" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\rxjs" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\source-map" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\sourcemap-codec" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\symbol-observable" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\terser" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\tree-kill" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\ts-node" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\tslib" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\tslint" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\upath" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\uri-js" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\webdriver-js-extender" t="IncludeRecursive" />
-      <e p="Web2\ClientApp\node_modules\zone.js" t="IncludeRecursive" />
       <e p="Zeus.sln" t="IncludeFlat" />
     </e>
     <e p="C:\Users\ryan0\.Rider2019.3\system\extResources" t="IncludeRecursive" />
