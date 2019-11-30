@@ -22,5 +22,11 @@ namespace Data.Entities
         public virtual UserType UserType { get; set; }
         
         public IEnumerable<CoursesUsers> CoursesUsers { get; set; }
+
+        public User WithoutPassword(User user)
+        {
+            user.Password = null;
+            return user;
+        }
     }
 }

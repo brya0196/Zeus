@@ -1,9 +1,8 @@
 ﻿using System;
-using Core.Interfaces;
 
-namespace Core.Generators
+namespace Core.Helpers
 {
-    public class MatriculaGenerator
+    public class MatriculaHelper
     {
         private static string separator = "-";
         

@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Core.Base;
+using Core.Interfaces;
 using Core.Services;
 using Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
+    [Authorize]
     [ApiController]
     public class UserController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController(IUnitOfWork unitOfWork, UserService userService)
+        public UserController(IUnitOfWork unitOfWork, IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _userService = userService;

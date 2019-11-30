@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
-using Core.Generators;
+using Core.Helpers;
 using Core.Interfaces;
 using Data;
 using Data.Entities;
@@ -13,6 +14,17 @@ namespace Core.Repositories
     {
         public UserRepository(ZeusDbContext context) : base(context)
         {
+        }
+
+        public override IEnumerable<User> GetAll()
+        {
+            return base.GetAll().Select(x => x.WithoutPassword(x));
+        }
+
+        public override Task Add(User Entity)
+        {
+            Entity.Password = PasswordHelper.HashPassword(Entity.Password);
+            return base.Add(Entity);
         }
 
         public async Task Update(User user)
