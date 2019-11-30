@@ -40,6 +40,9 @@
           <e p="UserRepository.cs" t="Include" />
           <e p="UserTypeRepository.cs" t="Include" />
         </e>
+        <e p="Services" t="Include">
+          <e p="UserService.cs" t="Include" />
+        </e>
         <e p="UnitOfWork.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
