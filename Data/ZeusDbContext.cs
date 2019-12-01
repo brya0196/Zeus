@@ -15,57 +15,20 @@ namespace Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Career> Careers { get; set; }
+        public DbSet<CoursesUsers> CoursesUsers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<CoursesUsers> CoursesUsers { get; set; }
+        public DbSet<CareerSubject> CareerSubjects { get; set; }
+        
        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<UserType>().HasKey(e => e.Id);
-            builder.Entity<Gender>().HasKey(e => e.Id);
-            builder.Entity<Course>().HasKey(e => e.Id);
-            builder.Entity<Status>().HasKey(e => e.Id);
-            builder.Entity<Career>().HasKey(e => e.Id);
-            builder.Entity<User>().HasKey(e => e.Id);
-            builder.Entity<Subject>().HasKey(e => e.Id);
-
-            builder.Entity<UserType>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<Gender>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<Course>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<Status>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<User>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<Subject>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
-
-            builder.Entity<Career>()
-                .Property(p => p.Id)
-                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
-                .ValueGeneratedOnAdd();
+            ModelCreating.SetIdFromEntities(builder);
+            ModelCreating.SetValueGeneratedOnAdd(builder);
+            ModelCreating.SetManyToManyRelationships(builder);
 
             builder.Entity<UserType>().HasData(
                 new UserType {Id = 1, Description = "Participante", CreatedAt = DateTime.Now}

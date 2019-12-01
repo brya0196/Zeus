@@ -11,6 +11,6 @@ namespace Data.Entities
         
         // relaciones
         public IEnumerable<User> Users { get; set; }
-        public IEnumerable<Subject> Subjects { get; set; }
+        public IEnumerable<CareerSubject> CareerSubjects { get; set; }
     }
 }
