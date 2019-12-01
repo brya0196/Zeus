@@ -58,7 +58,7 @@ namespace Web.Controllers
         
         [HttpPost]
         [Route("api/subject")]
-        public async Task<IActionResult> Add(Subject subject)
+        public async Task<IActionResult> Add([FromBody]Subject subject)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Web.Controllers
         
         [HttpPut]
         [Route("api/subject")]
-        public async Task<IActionResult> Update(Subject subject)
+        public async Task<IActionResult> Update([FromBody]Subject subject)
         {
             try
             {

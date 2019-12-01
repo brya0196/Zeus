@@ -17,8 +17,8 @@ namespace Core.Repositories
         {
             var genderToUpdate = await Get(gender.Id);
 
-            genderToUpdate.description = gender.description;
-            genderToUpdate.updated_at = DateTime.Now;
+            genderToUpdate.Description = gender.Description;
+            genderToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Genders.Update(genderToUpdate);
             await _context.SaveChangesAsync();

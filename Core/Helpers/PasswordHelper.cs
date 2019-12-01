@@ -7,7 +7,7 @@ namespace Core.Helpers
     {
         public static string HashPassword(string password)
         {
-            using MD5 md5Hash = MD5.Create();
+            var md5Hash = MD5.Create();
             byte[] inputBytes = Encoding.ASCII.GetBytes(password);
             byte[] hashBytes = md5Hash.ComputeHash(inputBytes);
                 

@@ -58,7 +58,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("api/usertype")]
-        public async Task<IActionResult> Add(UserType userType)
+        public async Task<IActionResult> Add([FromBody]UserType userType)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Web.Controllers
         
         [HttpPut]
         [Route("api/usertype")]
-        public async Task<IActionResult> Update(UserType userType)
+        public async Task<IActionResult> Update([FromBody]UserType userType)
         {
             try
             {

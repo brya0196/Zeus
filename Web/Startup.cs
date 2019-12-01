@@ -35,10 +35,14 @@ namespace Web
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
             
+            services.AddDbContext<ZeusDbContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly("Web")));
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
 
-            var key = Encoding.ASCII.GetBytes("MySecretPassword");
+            var key = Encoding.ASCII.GetBytes("MyLoginSecretWorldThatHasMoreThanTwoHundredAndFiftySix");
             services.AddAuthentication(x =>
                 {
                     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -56,10 +60,6 @@ namespace Web
                         ValidateAudience = false
                     };
                 });
-
-            services.AddDbContext<ZeusDbContext>(options =>
-                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("Web")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

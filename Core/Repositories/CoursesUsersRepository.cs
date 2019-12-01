@@ -20,7 +20,7 @@ namespace Core.Repositories
             coursesUsersToUpdate.User = coursesUsers.User;
             coursesUsersToUpdate.Subject = coursesUsers.Subject;
             coursesUsersToUpdate.Status = coursesUsers.Status;
-            coursesUsers.updated_at = DateTime.Now;
+            coursesUsers.UpdatedAt = DateTime.Now;
 
             _context.CoursesUsers.Add(coursesUsers);
             await _context.SaveChangesAsync();

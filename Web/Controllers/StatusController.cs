@@ -58,7 +58,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("api/status")]
-        public async Task<IActionResult> Add(Status status)
+        public async Task<IActionResult> Add([FromBody]Status status)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Web.Controllers
         
         [HttpPut]
         [Route("api/status")]
-        public async Task<IActionResult> Update(Status status)
+        public async Task<IActionResult> Update([FromBody]Status status)
         {
             try
             {

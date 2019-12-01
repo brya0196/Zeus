@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
 using Core.Interfaces;
-using Core.Services;
 using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,16 +28,12 @@ namespace Web.Controllers
         {
             try
             {
-                var users = _unitOfWork.UserRepository.GetAll();
+                var users = _unitOfWork.UserRepository.GetAll().Select( x => x.WithoutPassword(x) );
                 return Ok(users);
             }
             catch (Exception e)
             {
                 return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
             }
         }
         
@@ -62,17 +58,17 @@ namespace Web.Controllers
         
         [HttpPost]
         [Route("api/user")]
-        public async Task<IActionResult> Add(User user)
+        public async Task<IActionResult> Add([FromBody]User user)
         {
             try
             {
-                var userFixed =  _userService.AddMatriculaToStudent(user);
-                await _unitOfWork.UserRepository.Add(userFixed);
-                return Ok(user);
+                var userWithMatricula =  _userService.AddMatriculaToStudent(user);
+                await _unitOfWork.UserRepository.Add(userWithMatricula);
+                return Ok(user.WithoutPassword(user));
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return BadRequest(e.Message);
             }
             finally
             {
@@ -82,7 +78,7 @@ namespace Web.Controllers
         
         [HttpPut]
         [Route("api/user")]
-        public async Task<IActionResult> Update(User user)
+        public async Task<IActionResult> Update([FromBody]User user)
         {
             try
             {

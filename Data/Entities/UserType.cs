@@ -1,9 +1,13 @@
-﻿using Data.Base;
+﻿using System.Collections.Generic;
+using Data.Base;
 
 namespace Data.Entities
 {
     public class UserType : BaseEntity
     {
-        public string description { get; set; }
+        public string Description { get; set; }
+        
+        // relaciones
+        public IEnumerable<User> Users { get; set; }
     }
 }

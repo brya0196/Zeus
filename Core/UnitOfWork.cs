@@ -20,6 +20,7 @@ namespace Core
             SubjectRepository = new SubjectRepository(_context);
             UserRepository = new UserRepository(_context);
             CoursesUsersRepository = new CoursesUsersRepository(_context);
+            CareerRepository = new CareerRepository(_context);
         }
 
         public async void Dispose()
@@ -34,5 +35,6 @@ namespace Core
         public ISubjectRepository SubjectRepository { get; }
         public IUserRepository UserRepository { get; }
         public ICoursesUsersRepository CoursesUsersRepository { get; }
+        public ICareerRepository CareerRepository { get; }
     }
 }

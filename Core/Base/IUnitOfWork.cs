@@ -12,5 +12,6 @@ namespace Core.Base
         ISubjectRepository SubjectRepository { get; }
         IUserRepository UserRepository { get; }
         ICoursesUsersRepository CoursesUsersRepository { get; }
+        ICareerRepository CareerRepository { get; }
     }
 }

@@ -16,11 +16,6 @@ namespace Core.Repositories
         {
         }
 
-        public override IEnumerable<User> GetAll()
-        {
-            return base.GetAll().Select(x => x.WithoutPassword(x));
-        }
-
         public override Task Add(User Entity)
         {
             Entity.Password = PasswordHelper.HashPassword(Entity.Password);
@@ -38,7 +33,7 @@ namespace Core.Repositories
             userToUpdate.Phone = user.Phone;
             userToUpdate.Gender = user.Gender;
             userToUpdate.Birthdate = user.Birthdate;
-            userToUpdate.updated_at = DateTime.Now;
+            userToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Users.Update(userToUpdate);
             await _context.SaveChangesAsync();

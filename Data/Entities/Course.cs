@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Data.Base;
 
 namespace Data.Entities
 {
     public class Course : BaseEntity
     {
-        public string description { get; set; }
+        [Required]
+        public string Description { get; set; }
         
         public IEnumerable<Subject> Subjects { get; set; }
     }

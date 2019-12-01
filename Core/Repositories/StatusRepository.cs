@@ -17,8 +17,8 @@ namespace Core.Repositories
         {
             var statusToUpdate = await Get(status.Id);
 
-            statusToUpdate.description = status.description;
-            statusToUpdate.updated_at = DateTime.Now;
+            statusToUpdate.Description = status.Description;
+            statusToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Statuses.Update(statusToUpdate);
             await _context.SaveChangesAsync();

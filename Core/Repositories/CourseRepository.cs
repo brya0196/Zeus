@@ -17,8 +17,8 @@ namespace Core.Repositories
         {
             var courseToUpdate = await Get(course.Id);
 
-            courseToUpdate.description = course.description;
-            courseToUpdate.updated_at = DateTime.Now;
+            courseToUpdate.Description = course.Description;
+            courseToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Courses.Update(courseToUpdate);
             await _context.SaveChangesAsync();

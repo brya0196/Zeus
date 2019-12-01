@@ -6,7 +6,7 @@ namespace Core.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        public Task Update(User user);
-        public Task ChangePassword(int Id, string password);
+        Task Update(User user);
+        Task ChangePassword(int Id, string password);
     }
 }

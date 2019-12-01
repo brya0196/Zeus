@@ -23,17 +23,24 @@ namespace Core.Services
 
         public User AddMatriculaToStudent(User user)
         {
-            var lastUser = _unitOfWork.UserRepository.GetAll().Last();
-            user.Matricula = MatriculaHelper.Generator(lastUser.Matricula);
+            string matricula = null;
+            var lastUser = _unitOfWork.UserRepository.GetAll();
+            if (lastUser.Any())
+            {
+                matricula = lastUser.Last().Matricula;
+            }
+
+            user.Matricula = MatriculaHelper.Generator(matricula);
             return user;
         }
 
         public User Authenticate(AuthenticationDTO model)
         {
             model.Password = PasswordHelper.HashPassword(model.Password);
-            var user = _unitOfWork.UserRepository.GetAll()
-                .SingleOrDefault(u => (u.Matricula == model.EmailOrMatricula || u.Email == model.EmailOrMatricula) && u.Password == model.Password);
-            
+            var user = _unitOfWork.UserRepository.GetAll().FirstOrDefault(u =>
+                (u.Matricula == model.EmailOrMatricula || u.Email == model.EmailOrMatricula) &&
+                u.Password == model.Password);
+
             if (user == null)
             {
                 return null;
@@ -46,21 +53,24 @@ namespace Core.Services
         private User GetUserWithToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("MySecretWorld");
+            var key = Encoding.ASCII.GetBytes("MyLoginSecretWorldThatHasMoreThanTwoHundredAndFiftySix");
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString()), 
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
             };
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.Token = tokenHandler.WriteToken(token);
+            var userDTO = UserDTO.FromEntity(user);
 
-            return user.WithoutPassword(user);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            userDTO.Token = tokenHandler.WriteToken(token);
+
+            return userDTO;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Core.Base
         
         public virtual async Task Add(T Entity)
         {
-            Entity.created_at = DateTime.Now;
+            Entity.CreatedAt = DateTime.Now;
             _context.Set<T>().Add(Entity);
             await _context.SaveChangesAsync();
         }
@@ -33,7 +33,7 @@ namespace Core.Base
 
         public virtual IEnumerable<T> GetAll()
         {
-            return  _context.Set<T>().ToListAsync().Result;
+            return _context.Set<T>();
         }
 
         public virtual async Task<T> Get(int Id)

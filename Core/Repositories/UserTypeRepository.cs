@@ -17,8 +17,8 @@ namespace Core.Repositories
         {
             var userTypeToUpdate = await Get(userType.Id);
 
-            userTypeToUpdate.description = userType.description;
-            userTypeToUpdate.updated_at = DateTime.Now;
+            userTypeToUpdate.Description = userType.Description;
+            userTypeToUpdate.UpdatedAt = DateTime.Now;
 
             _context.UserTypes.Update(userTypeToUpdate);
             await _context.SaveChangesAsync();
