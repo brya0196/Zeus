@@ -15,6 +15,11 @@ function TopBar(props){
                         <span id="toggle-btn" className="menu-btn active" onClick={props.onToggle}><span></span><span></span><span></span></span>
                     </div>
                 </div>
+                <ul className="nav-menu list-unstyled d-flex flex-row align-items-center p-0 m-0">
+                    <li className="logOut">
+                        <button onClick={() => props.logoutUser(props.history)} className="btn btn-light" ><i className="icon icon-power"></i> Salir</button> 
+                    </li>
+                </ul>
             </div>
         </nav>
     );

@@ -25,14 +25,19 @@ class Login extends Component {
         this.setState({loading:true});
         const { userName, password} = this.state
 
-        API.post('/Login',{
-            usuInicioSesion: userName, usuClave: password
+        API.post('/api/auth',{
+            EmailOrMatricula: userName, Password: password
         })
         .then((response) =>{
-            const { from } = this.props.location.state || { from: { pathname: '/' } }
-            localStorage.setItem("_token", response.data.token);
-            this.props.setCurrentUserInfo(response.data.token);
-            window.location.href = from.pathname;
+            if(response.status === 200){
+                const { from } = this.props.location.state || { from: { pathname: '/' } };
+                localStorage.setItem("_token", response.data.token);
+                this.props.setCurrentUserInfo(response.data.token);
+                window.location.href = from.pathname;
+            }else{
+                this.setState({errors:"Datos incorrectos.", loading:false});
+            }
+
         })
         .catch((error) => {
             if(error.response)

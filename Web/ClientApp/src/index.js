@@ -1,4 +1,3 @@
-//import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
@@ -8,24 +7,23 @@ import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
 
 //auth -----------------------
-//////---import jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 //import setAuthToken from './setAuthToken';
-//////---import { setCurrentUser, logoutUser } from './redux/actions/authentication';
-//import { mostrarUsosMultiples } from './redux/actions/usosMultiplesActions';
+import { setCurrentUser, logoutUser } from './redux/actions/authentication';
 //end auth -----------------------
 
-/*if(localStorage._token) {
+if(localStorage._token) {
     //setAuthToken(localStorage.jwtToken);
     const decoded = jwt_decode(localStorage._token);
     store.dispatch(setCurrentUser(decoded));
     //store.dispatch(mostrarUsosMultiples());
-    
+
     const currentTime = Date.now() / 1000;
     if(decoded.exp < currentTime) {
       store.dispatch(logoutUser());
       window.location.href = '/entrar'
     }
-}*/
+}
 
 //const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');

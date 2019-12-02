@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Redirect, Route } from "react-router-dom";
 import Routes from "../routes";
-//import {isLoggedIn} from '../services/auth';
+import {isLoggedIn} from '../services/auth';
 import { connect } from 'react-redux';
 
 import TopBar from './TopBar';
@@ -16,7 +16,7 @@ class Layout extends Component {
       if (window.outerWidth < 1200) {
             document.querySelector(".side-navbar").classList.toggle('phone');
         }
-    }
+    };
     componentDidUpdate(prevProps) {
       if (this.props.location !== prevProps.location && window.outerWidth <= 1200) {
         const active = document.getElementById("toggle-btn").classList.value.includes("active");
@@ -28,11 +28,11 @@ class Layout extends Component {
       
 
       //ver si esta loggeado
-      // const {auth} = this.props;
-      // if (!isLoggedIn() || !auth.isAuthenticated) {
-      //   this.props.history.push('/entrar');
-      //   return false
-      // }
+      const {auth} = this.props;
+      if (!isLoggedIn() || !auth.isAuthenticated) {
+        this.props.history.push('/entrar');
+        return false
+      }
 
       const switchRoutes = (
           <Switch>

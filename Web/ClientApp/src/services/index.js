@@ -11,7 +11,7 @@ export const API = axios.create({
    // timeout: 1000,
     headers: {
         'contentType': 'application/json; charset=utf-8',
-       // 'Authorization': 'Bearer '+ getIdToken(),
+        'Authorization': 'Bearer '+ getIdToken(),
     }
 });
 API.interceptors.response.use(function (response) {
