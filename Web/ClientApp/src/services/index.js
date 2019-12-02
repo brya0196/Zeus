@@ -33,7 +33,7 @@ API.interceptors.response.use(function (response) {
 
 //cursos
 export function getCursos() {
-    return false; // API.get('Servicios');
+    return API.get('api/course');
 }
 export function addCurso(obj) {
     return API.post('cursos', obj);
@@ -44,7 +44,10 @@ export function editCurso(obj) {
 export function delCurso(id) {
     return API.delete(`cursos/${id}`);
 } 
-
+//user
+export function getUserInfo() {
+    return API.get('api/user');
+}
 
 
 

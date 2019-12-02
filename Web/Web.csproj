@@ -25,9 +25,10 @@
         <Content Include="ClientApp\src\views\Cursos\crear.js" />
         <Content Include="ClientApp\src\views\Cursos\index.js" />
         <Content Include="ClientApp\src\views\DashBoard\index.js" />
+        <Content Include="ClientApp\src\views\InfoPersonal\index.js" />
+        <Content Include="ClientApp\src\views\SeleccionMateria\index.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-        <None Include="ClientApp\src\views\Asignaturas\crear.js" />
         <None Include="ClientApp\src\views\Cursos\crear.js" />
     </ItemGroup>
 

@@ -1,5 +1,7 @@
 import Cursos from '../views/Cursos';
 import DashBoard from '../views/DashBoard';
+import Seleccion from '../views/SeleccionMateria';
+import InfoPersonal from '../views/InfoPersonal';
 
 import NotFound_404 from '../views/404';
 
@@ -14,11 +16,23 @@ const routes = [
         path: "/DashBoard",
         component: DashBoard
     },
+    //seleccion
+    {
+        path: "/seleccion",
+        title: "Preselección",
+        component: Seleccion
+    },
     //Cursos
     {
         path: "/cursos",
         title: "Lista de cursos",
         component: Cursos
+    },
+    //InfoPersonal
+    {
+        path: "/InfoPersonal",
+        title: "Información Personal",
+        component: InfoPersonal
     },
     { redirect: true, path: "/", to: "/Dashboard", title: "Redirect" }
 ];

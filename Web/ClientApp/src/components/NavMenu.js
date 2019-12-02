@@ -15,7 +15,10 @@ export default function NavMenu(props) {
                         <NavLink className="text-dark" activeClassName="active" to="/Dashboard"><i className="icon icon-tachometer"/><span>Dashboard</span></NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="text-dark"  to="/3"><i className="icon icon-files"/><span>Selección</span></NavLink>
+                        <NavLink className="text-dark"  to="/seleccion"><i className="icon icon-files"/><span>Selección</span></NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="text-dark"  to="/InfoPersonal"><i className="icon icon-files"/><span>Información Personal </span></NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="text-dark"  to="/3"><i className="icon icon-graduation-cap"/><span>Calificación </span></NavLink>
