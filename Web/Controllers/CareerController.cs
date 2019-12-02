@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Base;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("/api/career/pensum/{Id: int}")]
+        [Route("/api/career/pensum/{Id:int}")]
         public IActionResult GetByIdCareer(int Id)
         {
             try
