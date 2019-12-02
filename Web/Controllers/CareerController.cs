@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
+using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,25 @@ namespace Web.Controllers
         }
 
         [HttpGet]
+        [Route("/api/career/{Id:int}")]
+        public async Task<IActionResult> Get(int Id)
+        {
+            try
+            {
+                var career = await _unitOfWork.CareerRepository.Get(Id);
+                return Ok(career);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            finally
+            {
+                _unitOfWork.Dispose();
+            }
+        }
+
+        [HttpGet]
         [Route("/api/career/pensum/{Id:int}")]
         public IActionResult GetByIdCareer(int Id)
         {
@@ -45,6 +65,63 @@ namespace Web.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("/api/career")]
+        public async Task<IActionResult> Add([FromBody] Career career)
+        {
+            try
+            {
+                await _unitOfWork.CareerRepository.Add(career);
+                return Ok(career);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            finally
+            {
+                _unitOfWork.Dispose();
+            }
+        }
+        
+        [HttpPut]
+        [Route("/api/career")]
+        public async Task<IActionResult> Update([FromBody] Career career)
+        {
+            try
+            {
+                await _unitOfWork.CareerRepository.Update(career);
+                return Ok(career);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            finally
+            {
+                _unitOfWork.Dispose();
+            }
+        }
+        
+        [HttpDelete]
+        [Route("/api/career/{Id:int}")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            try
+            {
+                await _unitOfWork.CareerRepository.Delete(Id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            finally
+            {
+                _unitOfWork.Dispose();
             }
         }
     }

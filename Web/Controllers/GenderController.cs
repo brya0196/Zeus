@@ -95,7 +95,7 @@ namespace Web.Controllers
         }
         
         [HttpDelete]
-        [Route("api/gender")]
+        [Route("api/gender/{Id:int}")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
