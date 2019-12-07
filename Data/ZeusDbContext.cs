@@ -31,25 +31,7 @@ namespace Data
             ModelCreating.SetIdFromEntities(builder);
             ModelCreating.SetValueGeneratedOnAdd(builder);
             ModelCreating.SetManyToManyRelationships(builder);
-
-            builder.Entity<UserType>().HasData(
-                new UserType {Id = 1, Description = "Participante", CreatedAt = DateTime.Now}
-            );
-
-            builder.Entity<Gender>().HasData(
-                new Gender {Id = 1, Description = "Masculino", CreatedAt = DateTime.Now},
-                new Gender {Id = 2, Description = "Femenino", CreatedAt = DateTime.Now}
-            );
-
-            builder.Entity<Status>().HasData(
-                new Status {Id = 1, Description = "Aprobado", CreatedAt = DateTime.Now},
-                new Status {Id = 2, Description = "Reprobado", CreatedAt = DateTime.Now},
-                new Status {Id = 3, Description = "En progreso", CreatedAt = DateTime.Now}
-            );
-
-            builder.Entity<Career>().HasData(
-                new Career {Id = 1, Description = "Ingenieria de Software", CreatedAt = DateTime.Now}
-            );
+            ModelCreating.SeedDatabase(builder);
         }
     }
 }

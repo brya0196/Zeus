@@ -53,21 +53,6 @@ namespace Web.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("/api/career/pensum/{Id:int}")]
-        public IActionResult GetByIdCareer(int Id)
-        {
-            try
-            {
-                var pensum = _unitOfWork.CareerSubjectRepository.GetAllWithRelations() .Where(u => u.CareerId == Id);
-                return Ok(pensum);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
         [HttpPost]
         [Route("/api/career")]
         public async Task<IActionResult> Add([FromBody] Career career)

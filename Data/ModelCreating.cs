@@ -1,4 +1,5 @@
-﻿using Data.Entities;
+﻿using System;
+using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -60,12 +61,12 @@ namespace Data
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
                 .ValueGeneratedOnAdd();
-            
+
             builder.Entity<Period>()
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
                 .ValueGeneratedOnAdd();
-            
+
             builder.Entity<Section>()
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
@@ -80,6 +81,28 @@ namespace Data
             builder.Entity<CareerSubject>().HasOne(x => x.Subject)
                 .WithMany(x => x.CareerSubjects)
                 .HasForeignKey(x => x.SubjectId);
+        }
+
+        public static void SeedDatabase(ModelBuilder builder)
+        {
+            builder.Entity<UserType>().HasData(
+                new UserType {Id = 1, Description = "Participante", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Gender>().HasData(
+                new Gender {Id = 1, Description = "Masculino", CreatedAt = DateTime.Now},
+                new Gender {Id = 2, Description = "Femenino", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Status>().HasData(
+                new Status {Id = 1, Description = "Aprobado", CreatedAt = DateTime.Now},
+                new Status {Id = 2, Description = "Reprobado", CreatedAt = DateTime.Now},
+                new Status {Id = 3, Description = "En progreso", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Career>().HasData(
+                new Career {Id = 1, Description = "Ingenieria de Software", CreatedAt = DateTime.Now}
+            );
         }
     }
 }

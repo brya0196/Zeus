@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
 using Core.Interfaces;
 using Data;
 using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Core.Repositories
 {
@@ -11,6 +14,14 @@ namespace Core.Repositories
     {
         public PeriodRepository(ZeusDbContext context) : base(context)
         {
+        }
+
+        public IEnumerable<Period> Pensum(int CareerId)
+        {
+            return _context.Periods
+                .Include(p => p.CareerSubjects)
+                .ThenInclude(cs => cs.Subject)
+                .Where(p => p.CareerSubjects.Any(cs => cs.CareerId == CareerId));
         }
 
         public async Task Update(Period period)

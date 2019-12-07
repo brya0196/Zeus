@@ -7,6 +7,6 @@ namespace Data.Entities
     {
         public string Description { get; set; }
 
-        public IEnumerable<Subject> Subjects { get; set; }
+        public IEnumerable<CareerSubject> CareerSubjects { get; set; }
     }
 }

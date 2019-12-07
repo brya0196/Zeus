@@ -13,5 +13,10 @@ namespace Data.Entities
         [Required, ForeignKey("Career")]
         public int CareerId { get; set; }
         public Career Career { get; set; }
+        
+        [Required, ForeignKey("Period")] 
+        public int PeriodId { get; set; }
+
+        public Period Period { get; set; }
     }
 }

@@ -16,11 +16,6 @@ namespace Data.Entities
         public string CodeRequirement { get; set; }
 
         // relaciones
-        [Required, ForeignKey("Period")] 
-        public int PeriodId { get; set; }
-
-        public Period Period { get; set; }
-        
         public IEnumerable<CareerSubject> CareerSubjects { get; set; }
         public IEnumerable<Section> Sections { get; set; }
     }

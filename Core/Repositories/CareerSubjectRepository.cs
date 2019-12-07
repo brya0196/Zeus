@@ -23,8 +23,9 @@ namespace Core.Repositories
         {
             var careerSubjectToUpdate = await Get(careerSubject.Id);
 
-            careerSubjectToUpdate.Career = careerSubject.Career;
-            careerSubjectToUpdate.Subject = careerSubject.Subject;
+            careerSubjectToUpdate.CareerId = careerSubject.CareerId;
+            careerSubjectToUpdate.SubjectId = careerSubject.SubjectId;
+            careerSubjectToUpdate.PeriodId = careerSubject.PeriodId;
 
             _context.CareerSubjects.Add(careerSubjectToUpdate);
             await _context.SaveChangesAsync();
