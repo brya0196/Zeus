@@ -1,4 +1,9 @@
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+
+
+
+
 export const cursosTypes = {
     MOSTRAR_CURSOS: 'MOSTRAR_CURSOS',
     AGREGAR_EDITAR_CURSOS: 'AGREGAR_EDITAR_CURSOS',

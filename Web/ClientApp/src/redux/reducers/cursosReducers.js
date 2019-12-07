@@ -27,7 +27,7 @@ export default (state = initialState, action={}) => {
             }
         }
         case cursosTypes.MOSTRAR_CURSOS + _REJECTED: {
-            const { data, status } = action.payload.response || { data:"Error no definido"};
+            const { data, status } = action.payload.response || { data:"Error no definido",};
             return {
                 ...state,
                 isPending: false,

@@ -5,13 +5,13 @@ import Swal from 'sweetalert2';
 const axios = require('axios');
 //var online = window.navigator.onLine;
 
-const base_url = "/"
+const base_url = "/";
 export const API = axios.create({
     baseURL: base_url,
    // timeout: 1000,
     headers: {
         'contentType': 'application/json; charset=utf-8',
-        'Authorization': 'Bearer '+ getIdToken(),
+        'Authorization': 'Bearer '+ getIdToken()
     }
 });
 API.interceptors.response.use(function (response) {
@@ -33,7 +33,7 @@ API.interceptors.response.use(function (response) {
 
 //cursos
 export function getCursos() {
-    return API.get('api/course');
+    return API.get('api/career/pensum/1');
 }
 export function addCurso(obj) {
     return API.post('cursos', obj);
