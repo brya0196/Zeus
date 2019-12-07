@@ -1,9 +1,7 @@
-import React, {useEffect, Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {agregarEditarCurso, eliminarCurso, mostrarCursos, toggleModal} from '../../redux/actions/cursosActions';
+import {mostrarCursos} from '../../redux/actions/cursosActions';
 
-import Swal from 'sweetalert2';
-import Subject from "../../components/Subject";
 import Periods from "../../components/Period";
 
 function Cursos(props) {
@@ -13,37 +11,20 @@ function Cursos(props) {
         mostrarCursos();
     }, [mostrarCursos]);
 
-    const delItem = id => {
-
-
-        Swal.fire({
-            html: "&iquest;Estas seguro de querer eliminar este servicio?",
-            showCancelButton: true,
-            focusCancel: true,
-            confirmButtonText: 'Eliminar!',
-            showLoaderOnConfirm: true,
-            preConfirm: () => {
-                return props.eliminarCurso(id)
-            }
-        })
-
-    };
-
-    const {title: mainTitle, cursos: {list, isFetching, showModal, byId, isPending, error}} = props;
+    const {title: mainTitle, cursos: {list, isFetching}} = props;
     const isEmpty = !isFetching && list.length === 0;
-
-    console.log(list);
 
     return (
         <Fragment>
             <header className="page-header">
                 <h2>{mainTitle}</h2>
             </header>
-            <section className="cursos">
+            <section className="mx-5">
 
                 {!isEmpty && list.map((item, index) =>
                     (<Periods key={index} pensum={item}/>)
                 )}
+                
                 {isEmpty && <div className="isEmpty">No se encontraron registros</div>}
             </section>
         </Fragment>
@@ -54,4 +35,4 @@ function Cursos(props) {
 const mapStateToProps = (state) => ({
     cursos: state.cursos
 });
-export default connect(mapStateToProps, {mostrarCursos, agregarEditarCurso, eliminarCurso, toggleModal})(Cursos);
+export default connect(mapStateToProps, {mostrarCursos})(Cursos);
