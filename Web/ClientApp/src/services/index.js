@@ -1,5 +1,5 @@
 //import { createBrowserHistory } from "history";
-import { getIdToken } from './auth'; //isLoggedIn
+import {getIdToken, getTokenInfo} from './auth'; //isLoggedIn
 //import {PouchDB_GetCliente,PouchDB_AddCliente} from './localDB'
 import Swal from 'sweetalert2';
 const axios = require('axios');
@@ -33,7 +33,7 @@ API.interceptors.response.use(function (response) {
 
 //cursos
 export function getCursos() {
-    return API.get('api/course');
+    return API.get('api/career/pensum/{Id:int}');
 }
 export function addCurso(obj) {
     return API.post('cursos', obj);

@@ -8,6 +8,7 @@ import { Crear } from './crear';
 
 function Cursos(props) {
     const { mostrarCursos } = props;
+    
      useEffect(() => {
         mostrarCursos();
      }, [mostrarCursos]);

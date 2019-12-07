@@ -18,22 +18,10 @@ export default function NavMenu(props) {
                         <NavLink className="text-dark"  to="/seleccion"><i className="icon icon-files"/><span>Selección</span></NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink className="text-dark" to="/pensum"><i className="icon icon-envelope-o"/><span>Pensum</span></NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink className="text-dark"  to="/InfoPersonal"><i className="icon icon-files"/><span>Información Personal </span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="text-dark"  to="/3"><i className="icon icon-graduation-cap"/><span>Calificación </span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="text-dark" to="/3"><i className="icon icon-content-34"/><span>Servicios</span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="text-dark" to="/3"><i className="icon icon-envelope-o"/><span>Mensajería</span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="text-dark" to="/cursos"><i className="icon icon-envelope-o"/><span>Cursos</span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="text-dark" to="/3"><i className="icon icon-cog"/><span>Ajustes</span></NavLink>
                     </li>
                 </ul>
                 <div className="bottom">Versión: Preview</div>
