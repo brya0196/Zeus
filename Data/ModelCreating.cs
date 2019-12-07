@@ -16,6 +16,7 @@ namespace Data
             builder.Entity<Subject>().HasKey(e => e.Id);
             builder.Entity<CareerSubject>().HasKey(e => e.Id);
             builder.Entity<Period>().HasKey(e => e.Id);
+            builder.Entity<Section>().HasKey(e => e.Id);
         }
 
         public static void SetValueGeneratedOnAdd(ModelBuilder builder)
@@ -61,6 +62,11 @@ namespace Data
                 .ValueGeneratedOnAdd();
             
             builder.Entity<Period>()
+                .Property(p => p.Id)
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
+                .ValueGeneratedOnAdd();
+            
+            builder.Entity<Section>()
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
                 .ValueGeneratedOnAdd();

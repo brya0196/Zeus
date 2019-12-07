@@ -9,23 +9,23 @@ namespace Web.Controllers
 {
     [Authorize]
     [ApiController]
-    public class PeriodController : Controller
+    public class SectionController : Controller
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public PeriodController(IUnitOfWork unitOfWork)
+        public SectionController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        [Route("/api/period")]
+        [Route("/api/section")]
         public IActionResult GetAll()
         {
             try
             {
-                var periods = _unitOfWork.PeriodRepository.GetAll();
-                return Ok(periods);
+                var sections = _unitOfWork.SectionRepository.GetAll();
+                return Ok(sections);
             }
             catch (Exception e)
             {
@@ -34,13 +34,13 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("/api/period/{Id:int}")]
+        [Route("/api/section/{Id:int}")]
         public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var period = await _unitOfWork.PeriodRepository.Get(Id);
-                return Ok(period);
+                var section = await _unitOfWork.SectionRepository.Get(Id);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -53,13 +53,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [Route("/api/period")]
-        public async Task<IActionResult> Add([FromBody] Period period)
+        [Route("/api/section")]
+        public async Task<IActionResult> Add([FromBody] Section section)
         {
             try
             {
-                await _unitOfWork.PeriodRepository.Add(period);
-                return Ok(period);
+                await _unitOfWork.SectionRepository.Add(section);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -72,13 +72,13 @@ namespace Web.Controllers
         }
 
         [HttpPut]
-        [Route("/api/period")]
-        public async Task<IActionResult> Update([FromBody] Period period)
+        [Route("/api/section")]
+        public async Task<IActionResult> Update([FromBody] Section section)
         {
             try
             {
-                await _unitOfWork.PeriodRepository.Update(period);
-                return Ok(period);
+                await _unitOfWork.SectionRepository.Update(section);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -91,12 +91,12 @@ namespace Web.Controllers
         }
 
         [HttpDelete]
-        [Route("/api/period/{Id:int}")]
+        [Route("/api/section/{Id:int}")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.PeriodRepository.Delete(Id);
+                await _unitOfWork.SectionRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)

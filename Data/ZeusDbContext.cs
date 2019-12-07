@@ -20,6 +20,7 @@ namespace Data
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<CareerSubject> CareerSubjects { get; set; }
         public DbSet<Period> Periods { get; set; }
+        public DbSet<Section> Sections { get; set; }
         
        
 

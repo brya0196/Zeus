@@ -9,6 +9,6 @@ namespace Data.Entities
         [Required]
         public string Description { get; set; }
         
-        public IEnumerable<Subject> Subjects { get; set; }
+        public IEnumerable<Section> Sections { get; set; }
     }
 }

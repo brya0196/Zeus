@@ -15,5 +15,6 @@ namespace Core.Base
         ICareerRepository CareerRepository { get; }
         ICareerSubjectRepository CareerSubjectRepository { get; }
         IPeriodRepository PeriodRepository { get; }
+        ISectionRepository SectionRepository { get; }
     }
 }
