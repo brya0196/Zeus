@@ -11,6 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0" />
@@ -22,14 +23,16 @@
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
-        <Content Include="ClientApp\src\views\Cursos\crear.js" />
-        <Content Include="ClientApp\src\views\Cursos\index.js" />
+        <Content Include="ClientApp\src\components\Period.js" />
+        <Content Include="ClientApp\src\components\Subject.js" />
+        <Content Include="ClientApp\src\views\Pensum\crear.js" />
+        <Content Include="ClientApp\src\views\Pensum\index.js" />
         <Content Include="ClientApp\src\views\DashBoard\index.js" />
         <Content Include="ClientApp\src\views\InfoPersonal\index.js" />
         <Content Include="ClientApp\src\views\SeleccionMateria\index.js" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-        <None Include="ClientApp\src\views\Cursos\crear.js" />
+        <None Include="ClientApp\src\views\Pensum\crear.js" />
     </ItemGroup>
 
     <ItemGroup>

@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
-    [Authorize]
     [ApiController]
     public class UserController : Controller
     {

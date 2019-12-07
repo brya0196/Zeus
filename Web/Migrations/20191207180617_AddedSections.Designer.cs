@@ -3,14 +3,16 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Web.Migrations
 {
     [DbContext(typeof(ZeusDbContext))]
-    partial class ZeusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191207180617_AddedSections")]
+    partial class AddedSections
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 37, DateTimeKind.Local).AddTicks(1142),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(8545),
                             Description = "Ingenieria de Software",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -61,9 +63,6 @@ namespace Web.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("PeriodId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
@@ -73,8 +72,6 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CareerId");
-
-                    b.HasIndex("PeriodId");
 
                     b.HasIndex("SubjectId");
 
@@ -160,14 +157,14 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(7952),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(6861),
                             Description = "Masculino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(8058),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(6925),
                             Description = "Femenino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -269,21 +266,21 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9523),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(7777),
                             Description = "Aprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9579),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(7807),
                             Description = "Reprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9585),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 583, DateTimeKind.Local).AddTicks(7810),
                             Description = "En progreso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -312,10 +309,15 @@ namespace Web.Migrations
                         .HasColumnType("varchar(25) CHARACTER SET utf8mb4")
                         .HasMaxLength(25);
 
+                    b.Property<int>("PeriodId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PeriodId");
 
                     b.ToTable("Subjects");
                 });
@@ -411,7 +413,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 33, DateTimeKind.Local).AddTicks(1792),
+                            CreatedAt = new DateTime(2019, 12, 7, 14, 6, 16, 581, DateTimeKind.Local).AddTicks(4366),
                             Description = "Participante",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -422,12 +424,6 @@ namespace Web.Migrations
                     b.HasOne("Data.Entities.Career", "Career")
                         .WithMany("CareerSubjects")
                         .HasForeignKey("CareerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Entities.Period", "Period")
-                        .WithMany("CareerSubjects")
-                        .HasForeignKey("PeriodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -470,6 +466,15 @@ namespace Web.Migrations
                     b.HasOne("Data.Entities.Subject", "Subject")
                         .WithMany("Sections")
                         .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.Subject", b =>
+                {
+                    b.HasOne("Data.Entities.Period", "Period")
+                        .WithMany("Subjects")
+                        .HasForeignKey("PeriodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

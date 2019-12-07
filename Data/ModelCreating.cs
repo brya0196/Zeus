@@ -1,4 +1,5 @@
-﻿using Data.Entities;
+﻿using System;
+using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -15,6 +16,8 @@ namespace Data
             builder.Entity<User>().HasKey(e => e.Id);
             builder.Entity<Subject>().HasKey(e => e.Id);
             builder.Entity<CareerSubject>().HasKey(e => e.Id);
+            builder.Entity<Period>().HasKey(e => e.Id);
+            builder.Entity<Section>().HasKey(e => e.Id);
         }
 
         public static void SetValueGeneratedOnAdd(ModelBuilder builder)
@@ -58,6 +61,16 @@ namespace Data
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
                 .ValueGeneratedOnAdd();
+
+            builder.Entity<Period>()
+                .Property(p => p.Id)
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
+                .ValueGeneratedOnAdd();
+
+            builder.Entity<Section>()
+                .Property(p => p.Id)
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
+                .ValueGeneratedOnAdd();
         }
 
         public static void SetManyToManyRelationships(ModelBuilder builder)
@@ -68,6 +81,28 @@ namespace Data
             builder.Entity<CareerSubject>().HasOne(x => x.Subject)
                 .WithMany(x => x.CareerSubjects)
                 .HasForeignKey(x => x.SubjectId);
+        }
+
+        public static void SeedDatabase(ModelBuilder builder)
+        {
+            builder.Entity<UserType>().HasData(
+                new UserType {Id = 1, Description = "Participante", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Gender>().HasData(
+                new Gender {Id = 1, Description = "Masculino", CreatedAt = DateTime.Now},
+                new Gender {Id = 2, Description = "Femenino", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Status>().HasData(
+                new Status {Id = 1, Description = "Aprobado", CreatedAt = DateTime.Now},
+                new Status {Id = 2, Description = "Reprobado", CreatedAt = DateTime.Now},
+                new Status {Id = 3, Description = "En progreso", CreatedAt = DateTime.Now}
+            );
+
+            builder.Entity<Career>().HasData(
+                new Career {Id = 1, Description = "Ingenieria de Software", CreatedAt = DateTime.Now}
+            );
         }
     }
 }

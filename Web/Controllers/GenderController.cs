@@ -31,10 +31,6 @@ namespace Web.Controllers
             {
                 return BadRequest(e);
             }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
         }
 
         [HttpGet]

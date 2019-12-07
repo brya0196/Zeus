@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
 using Data.Entities;
@@ -10,23 +9,23 @@ namespace Web.Controllers
 {
     [Authorize]
     [ApiController]
-    public class CareerController : Controller
+    public class SectionController : Controller
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CareerController(IUnitOfWork unitOfWork)
+        public SectionController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
-        [Route("/api/career")]
+        [Route("/api/section")]
         public IActionResult GetAll()
         {
             try
             {
-                var careers = _unitOfWork.CareerRepository.GetAll();
-                return Ok(careers);
+                var sections = _unitOfWork.SectionRepository.GetAll();
+                return Ok(sections);
             }
             catch (Exception e)
             {
@@ -35,13 +34,13 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("/api/career/{Id:int}")]
+        [Route("/api/section/{Id:int}")]
         public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var career = await _unitOfWork.CareerRepository.Get(Id);
-                return Ok(career);
+                var section = await _unitOfWork.SectionRepository.Get(Id);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -54,13 +53,13 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [Route("/api/career")]
-        public async Task<IActionResult> Add([FromBody] Career career)
+        [Route("/api/section")]
+        public async Task<IActionResult> Add([FromBody] Section section)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Add(career);
-                return Ok(career);
+                await _unitOfWork.SectionRepository.Add(section);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -71,15 +70,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpPut]
-        [Route("/api/career")]
-        public async Task<IActionResult> Update([FromBody] Career career)
+        [Route("/api/section")]
+        public async Task<IActionResult> Update([FromBody] Section section)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Update(career);
-                return Ok(career);
+                await _unitOfWork.SectionRepository.Update(section);
+                return Ok(section);
             }
             catch (Exception e)
             {
@@ -90,14 +89,14 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpDelete]
-        [Route("/api/career/{Id:int}")]
+        [Route("/api/section/{Id:int}")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Delete(Id);
+                await _unitOfWork.SectionRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)

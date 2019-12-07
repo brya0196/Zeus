@@ -1,4 +1,4 @@
-import Cursos from '../views/Cursos';
+import Pensum from '../views/Pensum';
 import DashBoard from '../views/DashBoard';
 import Seleccion from '../views/SeleccionMateria';
 import InfoPersonal from '../views/InfoPersonal';
@@ -24,9 +24,9 @@ const routes = [
     },
     //Cursos
     {
-        path: "/cursos",
-        title: "Lista de cursos",
-        component: Cursos
+        path: "/pensum",
+        title: "Pensum",
+        component: Pensum
     },
     //InfoPersonal
     {

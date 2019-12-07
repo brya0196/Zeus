@@ -3,14 +3,16 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Web.Migrations
 {
     [DbContext(typeof(ZeusDbContext))]
-    partial class ZeusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191207171710_AddedPeriodsToSubjects")]
+    partial class AddedPeriodsToSubjects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 37, DateTimeKind.Local).AddTicks(1142),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(4240),
                             Description = "Ingenieria de Software",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -61,9 +63,6 @@ namespace Web.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("PeriodId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
@@ -73,8 +72,6 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CareerId");
-
-                    b.HasIndex("PeriodId");
 
                     b.HasIndex("SubjectId");
 
@@ -160,14 +157,14 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(7952),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(2326),
                             Description = "Masculino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(8058),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(2392),
                             Description = "Femenino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -192,56 +189,6 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Periods");
-                });
-
-            modelBuilder.Entity("Data.Entities.Section", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGeneratedOnAdd", true);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("CurrentRoom")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateEnds")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DateStart")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Days")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("MaximumRoom")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TimeEnds")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("TimeStart")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("Sections");
                 });
 
             modelBuilder.Entity("Data.Entities.Status", b =>
@@ -269,21 +216,21 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9523),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(3419),
                             Description = "Aprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9579),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(3452),
                             Description = "Reprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 36, DateTimeKind.Local).AddTicks(9585),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 397, DateTimeKind.Local).AddTicks(3454),
                             Description = "En progreso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -304,18 +251,50 @@ namespace Web.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CurrentRoom")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateEnds")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateStart")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Days")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("MaximumRoom")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(25) CHARACTER SET utf8mb4")
                         .HasMaxLength(25);
 
+                    b.Property<int>("PeriodId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TimeEnds")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("TimeStart")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("PeriodId");
 
                     b.ToTable("Subjects");
                 });
@@ -411,7 +390,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 7, 14, 43, 20, 33, DateTimeKind.Local).AddTicks(1792),
+                            CreatedAt = new DateTime(2019, 12, 7, 13, 17, 10, 395, DateTimeKind.Local).AddTicks(30),
                             Description = "Participante",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -422,12 +401,6 @@ namespace Web.Migrations
                     b.HasOne("Data.Entities.Career", "Career")
                         .WithMany("CareerSubjects")
                         .HasForeignKey("CareerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Entities.Period", "Period")
-                        .WithMany("CareerSubjects")
-                        .HasForeignKey("PeriodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -459,17 +432,17 @@ namespace Web.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Data.Entities.Section", b =>
+            modelBuilder.Entity("Data.Entities.Subject", b =>
                 {
                     b.HasOne("Data.Entities.Course", "Course")
-                        .WithMany("Sections")
+                        .WithMany("Subjects")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Entities.Subject", "Subject")
-                        .WithMany("Sections")
-                        .HasForeignKey("SubjectId")
+                    b.HasOne("Data.Entities.Period", "Period")
+                        .WithMany("Subjects")
+                        .HasForeignKey("PeriodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
