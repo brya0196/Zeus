@@ -28,6 +28,8 @@ namespace Core.Repositories
             subjectToUpdate.DateEnds = subject.DateEnds;
             subjectToUpdate.Code = subject.Code;
             subjectToUpdate.CodeRequirement = subject.CodeRequirement;
+            subjectToUpdate.PeriodId = subject.PeriodId;
+            subjectToUpdate.CourseId = subject.CourseId;
             subjectToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Subjects.Update(subjectToUpdate);

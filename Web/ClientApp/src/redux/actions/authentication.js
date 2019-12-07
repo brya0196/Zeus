@@ -7,6 +7,7 @@ export const setCurrentUserInfo = (token) => dispatch => {
 };
 export const logoutUser = () => dispatch => {
     localStorage.removeItem('_token');
+    localStorage.removeItem('_user');
     //setAuthToken(false);
     dispatch(setCurrentUser({}));
 

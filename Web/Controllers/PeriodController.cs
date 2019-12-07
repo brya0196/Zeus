@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
 using Data.Entities;
@@ -10,22 +9,22 @@ namespace Web.Controllers
 {
     [Authorize]
     [ApiController]
-    public class CareerController : Controller
+    public class PeriodController : Controller
     {
         private IUnitOfWork _unitOfWork;
 
-        public CareerController(IUnitOfWork unitOfWork)
+        public PeriodController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
+
         [HttpGet]
-        [Route("/api/career")]
+        [Route("/api/period")]
         public IActionResult GetAll()
         {
             try
             {
-                var careers = _unitOfWork.CareerRepository.GetAll();
+                var careers = _unitOfWork.PeriodRepository.GetAll();
                 return Ok(careers);
             }
             catch (Exception e)
@@ -35,12 +34,12 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("/api/career/{Id:int}")]
+        [Route("/api/period/{Id:int}")]
         public async Task<IActionResult> Get(int Id)
         {
             try
             {
-                var career = await _unitOfWork.CareerRepository.Get(Id);
+                var career = await _unitOfWork.PeriodRepository.Get(Id);
                 return Ok(career);
             }
             catch (Exception e)
@@ -50,32 +49,17 @@ namespace Web.Controllers
             finally
             {
                 _unitOfWork.Dispose();
-            }
-        }
-
-        [HttpGet]
-        [Route("/api/career/pensum/{Id:int}")]
-        public IActionResult GetByIdCareer(int Id)
-        {
-            try
-            {
-                var pensum = _unitOfWork.CareerSubjectRepository.GetAllWithRelations() .Where(u => u.CareerId == Id);
-                return Ok(pensum);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
             }
         }
 
         [HttpPost]
-        [Route("/api/career")]
-        public async Task<IActionResult> Add([FromBody] Career career)
+        [Route("/api/period")]
+        public async Task<IActionResult> Add([FromBody] Period period)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Add(career);
-                return Ok(career);
+                await _unitOfWork.PeriodRepository.Add(period);
+                return Ok(period);
             }
             catch (Exception e)
             {
@@ -86,15 +70,15 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpPut]
-        [Route("/api/career")]
-        public async Task<IActionResult> Update([FromBody] Career career)
+        [Route("/api/period")]
+        public async Task<IActionResult> Update([FromBody] Period period)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Update(career);
-                return Ok(career);
+                await _unitOfWork.PeriodRepository.Update(period);
+                return Ok(period);
             }
             catch (Exception e)
             {
@@ -105,14 +89,14 @@ namespace Web.Controllers
                 _unitOfWork.Dispose();
             }
         }
-        
+
         [HttpDelete]
-        [Route("/api/career/{Id:int}")]
+        [Route("/api/period/{Id:int}")]
         public async Task<IActionResult> Delete(int Id)
         {
             try
             {
-                await _unitOfWork.CareerRepository.Delete(Id);
+                await _unitOfWork.PeriodRepository.Delete(Id);
                 return Ok();
             }
             catch (Exception e)

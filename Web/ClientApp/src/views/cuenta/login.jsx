@@ -32,6 +32,7 @@ class Login extends Component {
             if(response.status === 200){
                 const { from } = this.props.location.state || { from: { pathname: '/' } };
                 localStorage.setItem("_token", response.data.token);
+                localStorage.setItem("_user", JSON.stringify(response.data));
                 this.props.setCurrentUserInfo(response.data.token);
                 window.location.href = from.pathname;
             }else{

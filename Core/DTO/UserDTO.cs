@@ -20,6 +20,9 @@ namespace Core.DTO
             dto.Birthdate = user.Birthdate;
             dto.CreatedAt = user.CreatedAt;
             dto.UpdatedAt = user.UpdatedAt;
+            dto.CareerId = user.CareerId;
+            dto.UserTypeId = user.UserTypeId;
+            dto.GenderId = user.GenderId;
             dto.Password = null;
 
             return dto;

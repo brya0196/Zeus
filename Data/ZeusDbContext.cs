@@ -19,6 +19,7 @@ namespace Data
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<CareerSubject> CareerSubjects { get; set; }
+        public DbSet<Period> Periods { get; set; }
         
        
 

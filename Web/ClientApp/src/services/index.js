@@ -33,7 +33,8 @@ API.interceptors.response.use(function (response) {
 
 //cursos
 export function getCursos() {
-    return API.get('api/career/pensum/{Id:int}');
+    const user = JSON.parse( localStorage.getItem("_user"));
+    return API.get('api/career/pensum/' + user.careerId);
 }
 export function addCurso(obj) {
     return API.post('cursos', obj);

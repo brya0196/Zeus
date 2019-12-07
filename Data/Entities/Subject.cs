@@ -30,7 +30,12 @@ namespace Data.Entities
         [Required, ForeignKey("Course")] 
         public int CourseId { get; set; }
         public Course Course { get; set; }
+        
+        [Required, ForeignKey("Period")] 
+        public int PeriodId { get; set; }
 
+        public Period Period { get; set; }
+        
         public IEnumerable<CareerSubject> CareerSubjects { get; set; }
     }
 }

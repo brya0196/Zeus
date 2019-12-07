@@ -36,13 +36,6 @@ function Cursos(props) {
           <>
               <header className="page-header">
                   <h2>{mainTitle}</h2>
-                  <ul className="controls">
-                      <li>
-                          <button className="btn btn-secondary" onClick={props.toggleModal}>
-                              Agregar
-                          </button>
-                      </li>
-                  </ul>
               </header>
               <section className="cursos">
                   <div className="container-fluid">

@@ -13,6 +13,7 @@ namespace Core.Base
         IUserRepository UserRepository { get; }
         ICoursesUsersRepository CoursesUsersRepository { get; }
         ICareerRepository CareerRepository { get; }
-        ICareerSubjectRepository CareerSubjectRepository { get; set; }
+        ICareerSubjectRepository CareerSubjectRepository { get; }
+        IPeriodRepository PeriodRepository { get; }
     }
 }
