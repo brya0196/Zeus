@@ -2,7 +2,7 @@
 
 const Subject = ({subject}) => {
   return(
-      <table className="table table-bordered table-active">
+      <table className="table table-custom table-bordered">
           <thead>
             <tr>
                 <th>Codigo</th>
@@ -14,7 +14,7 @@ const Subject = ({subject}) => {
             <tr>
                 <td>{subject.code}</td>
                 <td>{subject.name}</td>
-                <td>{subject.codeRequirement}</td>
+                <td>{ subject.codeRequirement ? subject.codeRequirement : "n/a" }</td>
             </tr>
           </tbody>
       </table>

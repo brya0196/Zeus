@@ -25,7 +25,6 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\src\components\Period.js" />
         <Content Include="ClientApp\src\components\Subject.js" />
-        <Content Include="ClientApp\src\views\Pensum\crear.js" />
         <Content Include="ClientApp\src\views\Pensum\index.js" />
         <Content Include="ClientApp\src\views\DashBoard\index.js" />
         <Content Include="ClientApp\src\views\InfoPersonal\index.js" />
