@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.DTO;
 using Core.Interfaces;
 using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -35,10 +36,10 @@ namespace Web.Controllers
         
         [HttpPost]
         [Route("api/selection")]
-        public IActionResult AddSubscription([FromBody] Subscription subscription,[FromBody] List<SubscriptionSection> subscriptionSections)
+        public IActionResult AddSubscription([FromBody] AddSubscriptionDTO addSubscriptionDto)
         {
-           _selectionService.AddSubscription(subscription, subscriptionSections);
-            return Ok(subscription);
+           _selectionService.AddSubscription(addSubscriptionDto.subscription, addSubscriptionDto.subscriptionSections);
+            return Ok(addSubscriptionDto.subscription);
         }
     }
 }

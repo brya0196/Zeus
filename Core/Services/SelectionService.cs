@@ -12,7 +12,6 @@ namespace Core.Services
     public class SelectionService : ISelectionService
     {
         private readonly ZeusDbContext _context;
-        private readonly IUnitOfWork _unitOfWork;
 
         public SelectionService(ZeusDbContext context)
         {
