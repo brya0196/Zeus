@@ -23,7 +23,7 @@ API.interceptors.response.use(function (response) {
         }else if(error.response.status === 403){
             Swal.fire( "Oops" ,  "Acceso denegado");
         } else if (error.response.status === 404) {
-            window.location.href = "/404";
+       //     window.location.href = "/404";
 
         }
     }
@@ -48,6 +48,17 @@ export function delCurso(id) {
 //user
 export function getUserInfo() {
     return API.get('api/user');
+}
+//Seleccion
+export function getSelection() {
+    const user = JSON.parse( localStorage.getItem("_user"));
+
+    return API.get(`api/selection/${user.id}`);
+}
+export function getSelectionCar() {
+    const user = JSON.parse( localStorage.getItem("_user"));
+
+    return API.get(`api/selection/${user.id}`);
 }
 
 

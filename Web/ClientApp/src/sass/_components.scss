@@ -192,6 +192,13 @@ div.mainLoading {
             &:not(.subTotal):not(.total):hover {
                 background: rgba(0, 0, 0, 0.06) !important
             }
+            .controls{
+                width: 51px;
+                text-align: center;
+                color: #bd2130;
+                cursor: pointer;
+            }
         }
+        
     }
 }

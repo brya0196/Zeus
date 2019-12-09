@@ -1,6 +1,7 @@
 import Pensum from '../views/Pensum';
 import DashBoard from '../views/DashBoard';
 import Seleccion from '../views/SeleccionMateria';
+import AgregarMareria from '../views/SeleccionMateria/agregar';
 import InfoPersonal from '../views/InfoPersonal';
 
 import NotFound_404 from '../views/404';
@@ -21,6 +22,11 @@ const routes = [
         path: "/seleccion",
         title: "Preselección",
         component: Seleccion
+    },
+    {
+        path: "/agregarMateria",
+        title: "Agregar Materia",
+        component: AgregarMareria
     },
     //Cursos
     {
