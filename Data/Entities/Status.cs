@@ -10,6 +10,6 @@ namespace Data.Entities
         public string Description { get; set; }
         
         // relaciones
-        public IEnumerable<CoursesUsers> CoursesUserses { get; set; }
+        public IEnumerable<SubscriptionSection> SubscriptionSections { get; set; }
     }
 }

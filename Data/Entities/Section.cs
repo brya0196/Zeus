@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Data.Base;
@@ -10,10 +11,7 @@ namespace Data.Entities
         [Required]
         public string Days { get; set; }
         [Required]
-        public int CurrentRoom { get; set; }
-        [Required]
         public int MaximumRoom { get; set; }
-
         public DateTime DateStart { get; set; }
         public DateTime DateEnds { get; set; }
         public DateTime TimeStart { get; set; }
@@ -27,5 +25,7 @@ namespace Data.Entities
         [Required, ForeignKey("Subject")]
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
+
+        public IEnumerable<SubscriptionSection> SubscriptionSections { get; set; }
     }
 }

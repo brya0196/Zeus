@@ -11,10 +11,10 @@ namespace Core.Base
         IUserTypeRepository UserTypeRepository { get; }
         ISubjectRepository SubjectRepository { get; }
         IUserRepository UserRepository { get; }
-        ICoursesUsersRepository CoursesUsersRepository { get; }
         ICareerRepository CareerRepository { get; }
         ICareerSubjectRepository CareerSubjectRepository { get; }
         IPeriodRepository PeriodRepository { get; }
         ISectionRepository SectionRepository { get; }
+        ISubscriptionRepository SubscriptionRepository { get; }
     }
 }

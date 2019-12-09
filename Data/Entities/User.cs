@@ -36,8 +36,8 @@ namespace Data.Entities
         [ForeignKey("Career"), Required]
         public int CareerId { get; set; }
         public Career Career { get; set; }
-        
-        public IEnumerable<CoursesUsers> CoursesUsers { get; set; }
+
+        public IEnumerable<Subscription> Subscriptions { get; set; }
 
         public User WithoutPassword(User user)
         {

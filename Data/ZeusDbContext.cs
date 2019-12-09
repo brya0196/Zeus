@@ -15,12 +15,13 @@ namespace Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Career> Careers { get; set; }
-        public DbSet<CoursesUsers> CoursesUsers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<CareerSubject> CareerSubjects { get; set; }
         public DbSet<Period> Periods { get; set; }
         public DbSet<Section> Sections { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<SubscriptionSection> SubscriptionSections { get; set; }
         
        
 

@@ -18,6 +18,8 @@ namespace Data
             builder.Entity<CareerSubject>().HasKey(e => e.Id);
             builder.Entity<Period>().HasKey(e => e.Id);
             builder.Entity<Section>().HasKey(e => e.Id);
+            builder.Entity<Subscription>().HasKey(e => e.Id);
+            builder.Entity<SubscriptionSection>().HasKey(e => e.Id);
         }
 
         public static void SetValueGeneratedOnAdd(ModelBuilder builder)
@@ -71,6 +73,16 @@ namespace Data
                 .Property(p => p.Id)
                 .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
                 .ValueGeneratedOnAdd();
+            
+            builder.Entity<Subscription>()
+                .Property(p => p.Id)
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
+                .ValueGeneratedOnAdd();
+            
+            builder.Entity<SubscriptionSection>()
+                .Property(p => p.Id)
+                .HasAnnotation("MySql:ValueGeneratedOnAdd", true)
+                .ValueGeneratedOnAdd();
         }
 
         public static void SetManyToManyRelationships(ModelBuilder builder)
@@ -81,6 +93,16 @@ namespace Data
             builder.Entity<CareerSubject>().HasOne(x => x.Subject)
                 .WithMany(x => x.CareerSubjects)
                 .HasForeignKey(x => x.SubjectId);
+            
+            builder.Entity<SubscriptionSection>().HasOne(x => x.Section)
+                .WithMany(x => x.SubscriptionSections)
+                .HasForeignKey(x => x.SectionId);
+            builder.Entity<SubscriptionSection>().HasOne(x => x.Subscription)
+                .WithMany(x => x.SubscriptionSections)
+                .HasForeignKey(x => x.SubscriptionId);
+            builder.Entity<SubscriptionSection>().HasOne(x => x.Status)
+                .WithMany(x => x.SubscriptionSections)
+                .HasForeignKey(x => x.StatusId);
         }
 
         public static void SeedDatabase(ModelBuilder builder)

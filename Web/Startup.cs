@@ -42,6 +42,7 @@ namespace Web
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISelectionService, SelectionService>();
 
             var key = Encoding.ASCII.GetBytes("MyLoginSecretWorldThatHasMoreThanTwoHundredAndFiftySix");
             services.AddAuthentication(x =>

@@ -19,11 +19,11 @@ namespace Core
             UserTypeRepository = new UserTypeRepository(_context);
             SubjectRepository = new SubjectRepository(_context);
             UserRepository = new UserRepository(_context);
-            CoursesUsersRepository = new CoursesUsersRepository(_context);
             CareerRepository = new CareerRepository(_context);
             CareerSubjectRepository = new CareerSubjectRepository(_context);
             PeriodRepository = new PeriodRepository(_context);
             SectionRepository = new SectionRepository(_context);
+            SubscriptionRepository = new SubscriptionRepository(_context);
         }
 
         public async void Dispose()
@@ -37,10 +37,10 @@ namespace Core
         public IUserTypeRepository UserTypeRepository { get; }
         public ISubjectRepository SubjectRepository { get; }
         public IUserRepository UserRepository { get; }
-        public ICoursesUsersRepository CoursesUsersRepository { get; }
         public ICareerRepository CareerRepository { get; }
         public ICareerSubjectRepository CareerSubjectRepository { get; }
         public IPeriodRepository PeriodRepository { get; }
         public ISectionRepository SectionRepository { get; }
+        public ISubscriptionRepository SubscriptionRepository { get; }
     }
 }

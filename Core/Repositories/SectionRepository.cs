@@ -18,7 +18,6 @@ namespace Core.Repositories
             var sectionToUpdate = await Get(section.Id);
             
             sectionToUpdate.Course = section.Course;
-            sectionToUpdate.CurrentRoom = section.CurrentRoom;
             sectionToUpdate.MaximumRoom = section.MaximumRoom;
             sectionToUpdate.TimeStart = section.TimeStart;
             sectionToUpdate.TimeEnds = section.TimeEnds;

@@ -3,14 +3,16 @@ using System;
 using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Web.Migrations
 {
     [DbContext(typeof(ZeusDbContext))]
-    partial class ZeusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191208034112_AddedSectionUsers")]
+    partial class AddedSectionUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(6758),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 364, DateTimeKind.Local).AddTicks(1688),
                             Description = "Ingenieria de Software",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -128,14 +130,14 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(4889),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 363, DateTimeKind.Local).AddTicks(9802),
                             Description = "Masculino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(4952),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 363, DateTimeKind.Local).AddTicks(9893),
                             Description = "Femenino",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -188,6 +190,9 @@ namespace Web.Migrations
                     b.Property<int>("MaximumRoom")
                         .HasColumnType("int");
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
@@ -204,9 +209,39 @@ namespace Web.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("StatusId");
+
                     b.HasIndex("SubjectId");
 
                     b.ToTable("Sections");
+                });
+
+            modelBuilder.Entity("Data.Entities.SectionUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("MySql:ValueGeneratedOnAdd", true);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("SectionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SectionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SectionUsers");
                 });
 
             modelBuilder.Entity("Data.Entities.Status", b =>
@@ -234,21 +269,21 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(5988),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 364, DateTimeKind.Local).AddTicks(829),
                             Description = "Aprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(6017),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 364, DateTimeKind.Local).AddTicks(864),
                             Description = "Reprobado",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 232, DateTimeKind.Local).AddTicks(6020),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 364, DateTimeKind.Local).AddTicks(867),
                             Description = "En progreso",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -283,67 +318,6 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Subjects");
-                });
-
-            modelBuilder.Entity("Data.Entities.Subscription", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGeneratedOnAdd", true);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("PeriodId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PeriodId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Subscriptions");
-                });
-
-            modelBuilder.Entity("Data.Entities.SubscriptionSection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("MySql:ValueGeneratedOnAdd", true);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("SectionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubscriptionId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SectionId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("SubscriptionId");
-
-                    b.ToTable("SubscriptionSections");
                 });
 
             modelBuilder.Entity("Data.Entities.User", b =>
@@ -437,7 +411,7 @@ namespace Web.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 12, 8, 21, 58, 26, 230, DateTimeKind.Local).AddTicks(1867),
+                            CreatedAt = new DateTime(2019, 12, 7, 23, 41, 11, 358, DateTimeKind.Local).AddTicks(5646),
                             Description = "Participante",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -472,6 +446,12 @@ namespace Web.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Data.Entities.Status", "Status")
+                        .WithMany("Sections")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Data.Entities.Subject", "Subject")
                         .WithMany("Sections")
                         .HasForeignKey("SubjectId")
@@ -479,38 +459,17 @@ namespace Web.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Data.Entities.Subscription", b =>
-                {
-                    b.HasOne("Data.Entities.Period", "Period")
-                        .WithMany()
-                        .HasForeignKey("PeriodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Entities.User", "User")
-                        .WithMany("Subscriptions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Data.Entities.SubscriptionSection", b =>
+            modelBuilder.Entity("Data.Entities.SectionUser", b =>
                 {
                     b.HasOne("Data.Entities.Section", "Section")
-                        .WithMany("SubscriptionSections")
+                        .WithMany("SectionUsers")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Entities.Status", "Status")
-                        .WithMany("SubscriptionSections")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Entities.Subscription", "Subscription")
-                        .WithMany("SubscriptionSections")
-                        .HasForeignKey("SubscriptionId")
+                    b.HasOne("Data.Entities.User", "User")
+                        .WithMany("SectionUsers")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
