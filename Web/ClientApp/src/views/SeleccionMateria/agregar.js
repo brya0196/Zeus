@@ -48,8 +48,7 @@ export default class agregarMareria extends Component {
         
         addSelection(seleccions)
             .then(({data}) =>{
-                console.log(data)
-               // this.props.history.push('/seleccion');
+               this.props.history.push('/seleccion');
                 
             })
             .catch((error) => {
