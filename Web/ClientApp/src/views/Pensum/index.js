@@ -24,7 +24,7 @@ function Cursos(props) {
                 {!isEmpty && list.map((item, index) =>
                     (<Periods key={index} pensum={item}/>)
                 )}
-                
+
                 {isEmpty && <div className="isEmpty">No se encontraron registros</div>}
             </section>
         </Fragment>
