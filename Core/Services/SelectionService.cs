@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
@@ -52,6 +51,7 @@ namespace Core.Services
                 var subscriptionSection = new SubscriptionSection();
                 subscriptionSection.SubscriptionId = subscription.Id;
                 subscriptionSection.SectionId = section;
+                subscriptionSection.StatusId = 1;
                 subscriptionSections.Add(subscriptionSection);
             }
             
