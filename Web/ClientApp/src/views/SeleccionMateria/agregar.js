@@ -11,7 +11,8 @@ export default class agregarMareria extends Component {
         this.state = {
             isLoading: true,
             selected:[],
-            seleccions: []
+            seleccions: [],
+            error: null
         }
     }
     componentDidMount() {
@@ -49,11 +50,9 @@ export default class agregarMareria extends Component {
         addSelection(seleccions)
             .then(({data}) =>{
                this.props.history.push('/seleccion');
-                
             })
             .catch((error) => {
-                console.log(error.response)
-                this.setState({isLoading:false})
+                this.setState({isLoading:false, error: error.response.data})
             })
     }
     render() {
@@ -75,8 +74,13 @@ export default class agregarMareria extends Component {
                         </li>
                     </ul>
                 </header>
+                
+                
+                
                 <section className="dashboard">
                     <div className="container-fluid">
+                        <div className={(this.state.error) ? 'alert alert-danger': null}>{this.state.error}</div>
+                        
                         <table className="table table-custom">
                             <thead>
                                 <tr>

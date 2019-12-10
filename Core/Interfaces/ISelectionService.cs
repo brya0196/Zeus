@@ -9,7 +9,7 @@ namespace Core.Interfaces
     {
         IEnumerable<Section> GetCurrentSelection(int UserId, int CareerId);
         Subscription GetCurrentSubscription(int UserId);
-        Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto);
+        void SubscribeStudent(AddSubscriptionDTO addSubscriptionDto);
         void DeleteSubscribeStudent(int subscriptionSectionId);
         List<Subscription> GetSubscriptions(int UserId);
         List<Subject> GetSubjects(int CareerId);

@@ -38,26 +38,35 @@ namespace Core.Services
             return _context.Subscriptions
                 .Include(x => x.SubscriptionSections)
                 .ThenInclude(x => x.Section)
-                .ThenInclude(x=>x.Subject)
+                .ThenInclude(x => x.Subject)
                 .AsEnumerable()
                 .Last(X => X.UserId == UserId);
         }
 
-        public async Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto)
+        public void SubscribeStudent(AddSubscriptionDTO addSubscriptionDto)
         {
             var subscription = GetSubscription(addSubscriptionDto.UserId);
             var subscriptionSections = new List<SubscriptionSection>();
 
-            foreach (var section in addSubscriptionDto.Sections)
+            foreach (var vSection in addSubscriptionDto.Sections)
             {
+                var section = _context.Sections.ToList().First(x => x.Id == vSection);
                 var subscriptionSection = new SubscriptionSection();
                 subscriptionSection.SubscriptionId = subscription.Id;
-                subscriptionSection.SectionId = section;
+                subscriptionSection.SectionId = vSection;
                 subscriptionSection.StatusId = 3;
+                subscriptionSection.Section = section;
                 subscriptionSection.CreatedAt = DateTime.Now;
+
+
+                if (subscriptionSections.Any(x => x.Section.SubjectId == section.SubjectId) )
+                {
+                    throw new Exception("No puede seleccion dos secciones de la misma materia");
+                }
+
                 subscriptionSections.Add(subscriptionSection);
             }
-            
+
             _context.SubscriptionSections.AddRange(subscriptionSections);
             _context.SaveChanges();
         }
@@ -78,7 +87,7 @@ namespace Core.Services
             {
                 return currentSubscription;
             }
-            
+
             var subscription = new Subscription();
             subscription.UserId = UserId;
             subscription.PeriodId = periodId;

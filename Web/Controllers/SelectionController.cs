@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.DTO;
 using Core.Interfaces;
 using Data.Entities;
@@ -30,16 +31,30 @@ namespace Web.Controllers
         [Route("api/selection/{Id:int}/{CareerId:int}")]
         public IActionResult GetCurrentSelection(int Id, int CareerId)
         {
-            var selection = _selectionService.GetCurrentSelection(Id, CareerId);
-            return Ok(selection);
+            try
+            {
+                var selection = _selectionService.GetCurrentSelection(Id, CareerId);
+                return Ok(selection);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
         
         [HttpPost]
         [Route("api/selection")]
         public IActionResult AddSubscription([FromBody] AddSubscriptionDTO addSubscriptionDto)
         {
-           _selectionService.SubscribeStudent(addSubscriptionDto);
-            return Ok();
+            try
+            {
+                _selectionService.SubscribeStudent(addSubscriptionDto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete]
