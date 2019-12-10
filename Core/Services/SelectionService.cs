@@ -59,6 +59,13 @@ namespace Core.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeleteSubscribeStudent(int subscriptionSectionId)
+        {
+            var subscriptionSection = await _context.SubscriptionSections.FindAsync(subscriptionSectionId);
+            _context.SubscriptionSections.Remove(subscriptionSection);
+            await _context.SaveChangesAsync();
+        }
+
         private async Task<Subscription> GetSubscription(int UserId)
         {
             var periodId = _unitOfWork.PeriodRepository.GetValidPeriod().Id;

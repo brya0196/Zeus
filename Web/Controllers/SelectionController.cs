@@ -41,5 +41,13 @@ namespace Web.Controllers
            _selectionService.SubscribeStudent(addSubscriptionDto);
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("api/selection/{Id:int}")]
+        public IActionResult DeleteSubscriptionSection(int Id)
+        {
+            _selectionService.DeleteSubscribeStudent(Id);
+            return Ok();
+        }
     }
 }
