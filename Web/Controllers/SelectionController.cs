@@ -38,8 +38,8 @@ namespace Web.Controllers
         [Route("api/selection")]
         public IActionResult AddSubscription([FromBody] AddSubscriptionDTO addSubscriptionDto)
         {
-           _selectionService.AddSubscription(addSubscriptionDto.subscription, addSubscriptionDto.subscriptionSections);
-            return Ok(addSubscriptionDto.subscription);
+           _selectionService.SubscribeStudent(addSubscriptionDto);
+            return Ok();
         }
     }
 }

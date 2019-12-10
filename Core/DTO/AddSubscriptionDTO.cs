@@ -5,7 +5,7 @@ namespace Core.DTO
 {
     public class AddSubscriptionDTO
     {
-        public Subscription subscription;
-        public List<SubscriptionSection> subscriptionSections;
+        public int UserId;
+        public List<int> Sections;
     }
 }

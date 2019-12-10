@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
+using Core.Helpers;
 using Core.Interfaces;
 using Data;
 using Data.Entities;
@@ -24,11 +25,17 @@ namespace Core.Repositories
                 .Where(p => p.CareerSubjects.Any(cs => cs.CareerId == CareerId));
         }
 
+        public Period GetValidPeriod()
+        {
+            return _context.Periods.Last(x => x.Active == ValidityHelper.Yes);
+        }
+
         public async Task Update(Period period)
         {
             var periodToUpdate = await Get(period.Id);
 
             periodToUpdate.Description = period.Description;
+            periodToUpdate.Active = period.Active;
             periodToUpdate.UpdatedAt = DateTime.Now;
 
             _context.Periods.Update(periodToUpdate);

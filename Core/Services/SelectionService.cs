@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
+using Core.DTO;
 using Core.Interfaces;
 using Data;
 using Data.Entities;
@@ -12,10 +14,12 @@ namespace Core.Services
     public class SelectionService : ISelectionService
     {
         private readonly ZeusDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SelectionService(ZeusDbContext context)
+        public SelectionService(ZeusDbContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -38,11 +42,40 @@ namespace Core.Services
                 .Last(X => X.UserId == UserId);
         }
 
-        public async Task AddSubscription(Subscription subscription, List<SubscriptionSection> subscriptionSections)
+        public async Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto)
         {
-            _context.Subscriptions.Add(subscription);
-            _context.SubscriptionSections.AddRange(subscriptionSections);
+            var subscription = GetSubscription(addSubscriptionDto.UserId);
+            var subscriptionSections = new List<SubscriptionSection>();
+
+            foreach (var section in addSubscriptionDto.Sections)
+            {
+                var subscriptionSection = new SubscriptionSection();
+                subscriptionSection.SubscriptionId = subscription.Id;
+                subscriptionSection.SectionId = section;
+                subscriptionSections.Add(subscriptionSection);
+            }
+            
+            await _context.SubscriptionSections.AddRangeAsync(subscriptionSections);
             await _context.SaveChangesAsync();
+        }
+
+        private async Task<Subscription> GetSubscription(int UserId)
+        {
+            var periodId = _unitOfWork.PeriodRepository.GetValidPeriod().Id;
+            var currentSubscription = _unitOfWork.SubscriptionRepository.GetCurrentSubscription(UserId, periodId);
+
+            if (currentSubscription != null)
+            {
+                return currentSubscription;
+            }
+            
+            var subscription = new Subscription();
+            subscription.UserId = UserId;
+            subscription.PeriodId = periodId;
+
+            await _unitOfWork.SubscriptionRepository.Add(subscription);
+
+            return subscription;
         }
 
         public List<Subscription> GetSubscriptions(int UserId)

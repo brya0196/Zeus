@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
+using Core.Helpers;
 using Core.Interfaces;
 using Data;
 using Data.Entities;
@@ -23,6 +25,11 @@ namespace Core.Repositories
 
             _context.Subscriptions.Update(subscriptionToUpdate);
             await _context.SaveChangesAsync();
+        }
+
+        public Subscription GetCurrentSubscription(int UserId, int PeriodId)
+        {
+            return _context.Subscriptions.First(x => x.UserId == UserId && x.PeriodId == PeriodId && DatetimeHelper.IsFromCurrentYear(x.CreatedAt));
         }
     }
 }

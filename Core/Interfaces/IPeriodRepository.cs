@@ -8,6 +8,7 @@ namespace Core.Interfaces
     public interface IPeriodRepository : IBaseRepository<Period>
     {
         IEnumerable<Period> Pensum(int CareerId);
+        Period GetValidPeriod();
         Task Update(Period period);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core.DTO;
 using Data.Entities;
 
 namespace Core.Interfaces
@@ -8,7 +9,7 @@ namespace Core.Interfaces
     {
         IEnumerable<Section> GetCurrentSelection(int UserId, int CareerId);
         Subscription GetCurrentSubscription(int UserId);
-        Task AddSubscription(Subscription subscription, List<SubscriptionSection> subscriptionSections);
+        Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto);
         List<Subscription> GetSubscriptions(int UserId);
         List<Subject> GetSubjects(int CareerId);
     }
