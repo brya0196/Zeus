@@ -51,7 +51,7 @@ namespace Core.Services
                 var subscriptionSection = new SubscriptionSection();
                 subscriptionSection.SubscriptionId = subscription.Id;
                 subscriptionSection.SectionId = section;
-                subscriptionSection.StatusId = 1;
+                subscriptionSection.StatusId = 3;
                 subscriptionSections.Add(subscriptionSection);
             }
             
