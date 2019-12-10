@@ -27,7 +27,8 @@ namespace Core.Repositories
 
         public Period GetValidPeriod()
         {
-            return _context.Periods.Last(x => x.Active == ValidityHelper.Yes);
+            var valid = ValidityHelper.Yes;
+            return _context.Periods.AsEnumerable().Last(x => x.Active == valid);
         }
 
         public async Task Update(Period period)

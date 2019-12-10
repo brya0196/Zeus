@@ -2,8 +2,8 @@
 {
     public class ValidityHelper
     {
-        public static int Yes { get; set; }
-        public static int No { get; set; }
+        public static int Yes = 1;
+        public static int No = 2;
 
         public static bool IsActive(int value)
         {

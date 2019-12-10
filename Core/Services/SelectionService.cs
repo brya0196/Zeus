@@ -44,7 +44,7 @@ namespace Core.Services
 
         public async Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto)
         {
-            var subscription = GetSubscription(addSubscriptionDto.UserId);
+            var subscription = await GetSubscription(addSubscriptionDto.UserId);
             var subscriptionSections = new List<SubscriptionSection>();
 
             foreach (var section in addSubscriptionDto.Sections)
