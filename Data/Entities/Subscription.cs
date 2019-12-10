@@ -18,3 +18,4 @@ namespace Data.Entities
         public IEnumerable<SubscriptionSection> SubscriptionSections { get; set; }
     }
 }
+

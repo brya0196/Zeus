@@ -1,5 +1,5 @@
 //import { createBrowserHistory } from "history";
-import {getIdToken, getTokenInfo} from './auth'; //isLoggedIn
+import {getIdToken} from './auth'; //isLoggedIn,getTokenInfo
 //import {PouchDB_GetCliente,PouchDB_AddCliente} from './localDB'
 import Swal from 'sweetalert2';
 const axios = require('axios');
@@ -57,8 +57,23 @@ export function getSelection() {
 }
 export function getSelectionCar() {
     const user = JSON.parse( localStorage.getItem("_user"));
+    return API.get(`api/selection/${user.id}/${user.careerId}`);
+}
+export function addSelection(materias) {
+    const user = JSON.parse( localStorage.getItem("_user"));
+    let addSubscriptionDto = {
+        userId: user.id,
+        sections: materias
+    };
+    return API.post(`api/selection`,addSubscriptionDto);
+}
+export function delSelection(id) {
+    return API.delete(`api/selection/${id}`);
+}
 
-    return API.get(`api/selection/${user.id}`);
+//Materias
+export function getMaterias() {
+    return API.get(`api/subject`);
 }
 
 
