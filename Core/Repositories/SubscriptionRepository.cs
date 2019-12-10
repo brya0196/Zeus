@@ -29,10 +29,13 @@ namespace Core.Repositories
 
         public Subscription GetCurrentSubscription(int UserId, int PeriodId)
         {
-            var subscription = _context.Subscriptions.AsEnumerable().First(x =>
-                x.UserId == UserId && DatetimeHelper.IsFromCurrentYear(x.CreatedAt));
-            
-            return subscription != null ? subscription : null;
+            var subscription = _context.Subscriptions
+                .ToList()
+                .Where(x => x.UserId == UserId && DatetimeHelper.IsFromCurrentYear(x.CreatedAt));
+
+            var matchSubscription = subscription.First(x => x.PeriodId == PeriodId);
+
+            return matchSubscription;
         }
     }
 }

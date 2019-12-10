@@ -86,7 +86,7 @@ export default class Seleccion extends Component {
                             <tbody>
                             {materias.length > 0 && materias.map(mat=>
                                 <tr key={mat.section.id}>
-                                    <td className="controls" onClick={()=>this.eliminarMateria(mat.section.id)}>
+                                    <td className="controls" onClick={()=>this.eliminarMateria(mat.id)}>
                                         <i className="fa fa-trash-o"></i>
                                     </td>
                                     <td>{mat.section.subject.code}</td>

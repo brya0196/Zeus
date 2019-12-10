@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
@@ -44,7 +45,7 @@ namespace Core.Services
 
         public async Task SubscribeStudent(AddSubscriptionDTO addSubscriptionDto)
         {
-            var subscription = await GetSubscription(addSubscriptionDto.UserId);
+            var subscription = GetSubscription(addSubscriptionDto.UserId);
             var subscriptionSections = new List<SubscriptionSection>();
 
             foreach (var section in addSubscriptionDto.Sections)
@@ -53,11 +54,12 @@ namespace Core.Services
                 subscriptionSection.SubscriptionId = subscription.Id;
                 subscriptionSection.SectionId = section;
                 subscriptionSection.StatusId = 3;
+                subscriptionSection.CreatedAt = DateTime.Now;
                 subscriptionSections.Add(subscriptionSection);
             }
             
-            await _context.SubscriptionSections.AddRangeAsync(subscriptionSections);
-            await _context.SaveChangesAsync();
+            _context.SubscriptionSections.AddRange(subscriptionSections);
+            _context.SaveChanges();
         }
 
         public void DeleteSubscribeStudent(int subscriptionSectionId)
@@ -67,7 +69,7 @@ namespace Core.Services
             _context.SaveChanges();
         }
 
-        private async Task<Subscription> GetSubscription(int UserId)
+        private Subscription GetSubscription(int UserId)
         {
             var periodId = _unitOfWork.PeriodRepository.GetValidPeriod().Id;
             var currentSubscription = _unitOfWork.SubscriptionRepository.GetCurrentSubscription(UserId, periodId);
@@ -80,8 +82,10 @@ namespace Core.Services
             var subscription = new Subscription();
             subscription.UserId = UserId;
             subscription.PeriodId = periodId;
+            subscription.CreatedAt = DateTime.Now;
 
-            await _unitOfWork.SubscriptionRepository.Add(subscription);
+            _context.Subscriptions.Add(subscription);
+            _context.SaveChangesAsync();
 
             return subscription;
         }
