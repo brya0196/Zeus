@@ -37,6 +37,7 @@ namespace Core.Services
             return _context.Subscriptions
                 .Include(x => x.SubscriptionSections)
                 .ThenInclude(x => x.Section)
+                .ThenInclude(x=>x.Subject)
                 .AsEnumerable()
                 .Last(X => X.UserId == UserId);
         }
