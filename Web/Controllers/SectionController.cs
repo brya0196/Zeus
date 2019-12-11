@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Base;
 using Data.Entities;
@@ -20,93 +21,40 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("/api/section")]
-        public IActionResult GetAll()
+        public IEnumerable<Section> GetAll()
         {
-            try
-            {
-                var sections = _unitOfWork.SectionRepository.GetAll();
-                return Ok(sections);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            return _unitOfWork.SectionRepository.GetAll();
         }
 
         [HttpGet]
         [Route("/api/section/{Id:int}")]
-        public async Task<IActionResult> Get(int Id)
+        public async Task<Section> Get(int Id)
         {
-            try
-            {
-                var section = await _unitOfWork.SectionRepository.Get(Id);
-                return Ok(section);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            return await _unitOfWork.SectionRepository.Get(Id);
         }
 
         [HttpPost]
         [Route("/api/section")]
-        public async Task<IActionResult> Add([FromBody] Section section)
+        public async Task<Section> Add([FromBody] Section section)
         {
-            try
-            {
-                await _unitOfWork.SectionRepository.Add(section);
-                return Ok(section);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            await _unitOfWork.SectionRepository.Add(section);
+            return await _unitOfWork.SectionRepository.Get(section.Id);
         }
 
         [HttpPut]
         [Route("/api/section")]
-        public async Task<IActionResult> Update([FromBody] Section section)
+        public async Task<Section> Update([FromBody] Section section)
         {
-            try
-            {
-                await _unitOfWork.SectionRepository.Update(section);
-                return Ok(section);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            await _unitOfWork.SectionRepository.Update(section);
+            return await _unitOfWork.SectionRepository.Get(section.Id);
         }
 
         [HttpDelete]
         [Route("/api/section/{Id:int}")]
-        public async Task<IActionResult> Delete(int Id)
+        public async Task<bool> Delete(int Id)
         {
-            try
-            {
-                await _unitOfWork.SectionRepository.Delete(Id);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            await _unitOfWork.SectionRepository.Delete(Id);
+            return true;
         }
     }
 }

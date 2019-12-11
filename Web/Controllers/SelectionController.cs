@@ -21,40 +21,24 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("api/selection/{Id:int}")]
-        public IActionResult GetCurrentSubscription(int Id)
+        public Subscription GetCurrentSubscription(int Id)
         {
-            var subscription = _selectionService.GetCurrentSubscription(Id);
-            return Ok(subscription);
+            return _selectionService.GetCurrentSubscription(Id);
         }
         
         [HttpGet]
         [Route("api/selection/{Id:int}/{CareerId:int}")]
-        public IActionResult GetCurrentSelection(int Id, int CareerId)
+        public IEnumerable<Section> GetCurrentSelection(int Id, int CareerId)
         {
-            try
-            {
-                var selection = _selectionService.GetCurrentSelection(Id, CareerId);
-                return Ok(selection);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            return _selectionService.GetCurrentSelection(Id, CareerId);
         }
         
         [HttpPost]
         [Route("api/selection")]
         public IActionResult AddSubscription([FromBody] AddSubscriptionDTO addSubscriptionDto)
         {
-            try
-            {
-                _selectionService.SubscribeStudent(addSubscriptionDto);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            _selectionService.SubscribeStudent(addSubscriptionDto);
+            return Ok();
         }
 
         [HttpDelete]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Base;
@@ -23,94 +24,42 @@ namespace Web.Controllers
         
         [HttpGet]
         [Route("api/user")]
-        public IActionResult GetAll()
+        public IEnumerable<User> GetAll()
         {
-            try
-            {
-                var users = _unitOfWork.UserRepository.GetAll().Select( x => x.WithoutPassword(x) );
-                return Ok(users);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
+            return _unitOfWork.UserRepository.GetAll().Select( x => x.WithoutPassword(x) );
         }
         
         [HttpGet]
         [Route("api/user/{Id:int}")]
-        public async Task<IActionResult> GetById(int Id)
+        public async Task<User> GetById(int Id)
         {
-            try
-            {
-                var user = await _unitOfWork.UserRepository.Get(Id);
-                return Ok(user);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+
+            return await _unitOfWork.UserRepository.Get(Id);
         }
         
         [HttpPost]
         [Route("api/user")]
-        public async Task<IActionResult> Add([FromBody]User user)
+        public async Task<User> Add([FromBody]User user)
         {
-            try
-            {
-                var userWithMatricula =  _userService.AddMatriculaToStudent(user);
-                await _unitOfWork.UserRepository.Add(userWithMatricula);
-                return Ok(user.WithoutPassword(user));
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            var userWithMatricula =  _userService.AddMatriculaToStudent(user);
+            await _unitOfWork.UserRepository.Add(userWithMatricula);
+            return await _unitOfWork.UserRepository.Get(userWithMatricula.Id);
         }
         
         [HttpPut]
         [Route("api/user")]
-        public async Task<IActionResult> Update([FromBody]User user)
+        public async Task<User> Update([FromBody]User user)
         {
-            try
-            {
-                await _unitOfWork.UserRepository.Update(user);
-                return Ok(user);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose(); 
-            }
+            await _unitOfWork.UserRepository.Update(user);
+            return await _unitOfWork.UserRepository.Get(user.Id);
         }
         
         [HttpDelete]
         [Route("api/user/{Id:int}")]
-        public async Task<IActionResult> Delete(int Id)
+        public async Task<bool> Delete(int Id)
         {
-            try
-            {
-                await _unitOfWork.UserRepository.Delete(Id);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-            finally
-            {
-                _unitOfWork.Dispose();
-            }
+            await _unitOfWork.UserRepository.Delete(Id);
+            return true;
         }
         
     }
