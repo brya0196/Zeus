@@ -20,9 +20,7 @@ namespace Test.Repositories
             unitOfWork.Setup(x => x.UserRepository.GetAll()).Returns(users);
             
             var userController = new UserController(unitOfWork.Object, userService.Object);
-
             var result = userController.GetAll();
-
             Assert.AreEqual(users, result);
         }
     }

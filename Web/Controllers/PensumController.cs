@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core.Base;
+using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,17 +20,9 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("api/pensum/{CareerId:int}")]
-        public IActionResult Pensum(int CareerId)
+        public IEnumerable<Period> Pensum(int CareerId)
         {
-            try
-            {
-                var pensums = _unitOfWork.PeriodRepository.Pensum(CareerId);
-                return Ok(pensums);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            return _unitOfWork.PeriodRepository.Pensum(CareerId);
         }
     }
 }
