@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "auth0-js": "^9.11.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "4.3.1",
     "glightbox": "^2.0.4",
     "jwt-decode": "^2.2.0",
