@@ -8,7 +8,7 @@
     "bootstrap": "4.3.1",
     "glightbox": "^2.0.4",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
